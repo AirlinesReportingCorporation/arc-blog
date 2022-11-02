@@ -6,7 +6,7 @@ const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 // plugin to handle scss
 const sass = require('gulp-sass')(require('sass'));
-// prefixer for css 
+// prefixer for css (webkit)
 const prefix = require('gulp-autoprefixer');
 // minify the css
 const minify = require('gulp-clean-css');
@@ -19,6 +19,9 @@ function scssCompiler(){
     .pipe(sass())
     .pipe(prefix())
     .pipe(minify())
+    .pipe(rename({
+        suffix: '.min'
+    }))
     .pipe(dest('dist'))
 };
 
@@ -28,6 +31,9 @@ function handleJSX(){
     .pipe(babel({
         plugins: ["@babel/plugin-transform-react-jsx"]
       }))
+    .pipe(rename({
+        suffix: '.min'
+    }))
     .pipe(dest("dist"));
 };
 
