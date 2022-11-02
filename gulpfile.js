@@ -1,43 +1,48 @@
-const { src, dest } = require('gilp');
+const { src, dest, watch, series } = require('gulp');
 const babel = require('gulp-babel');
 // Handles minify errors
 const uglify = require('gulp-uglify');
 // Change the name of the file
 const rename = require('gulp-rename');
+// plugin to handle scss
+const sass = require('gulp-sass')(require('sass'));
+// prefixer for css 
+const prefix = require('gulp-autoprefixer');
+// minify the css
+const minify = require('gulp-clean-css');
 
 //Functions
 
-function cssTranspile(cb) {
-    cb()
+// Handle SCSS to css and minifying it
+function scssCompiler(){
+    return src('src/scss/*.scss')
+    .pipe(sass())
+    .pipe(prefix())
+    .pipe(minify())
+    .pipe(dest('dist'))
 };
 
-function cssMinify(cb){
-    cb()
+// Use Babel to transform the jsx into js code for gulp
+function handleJSX(){
+    return src("src/*.jsx")
+    .pipe(babel({
+        plugins: ["@babel/plugin-transform-react-jsx"]
+      }))
+    .pipe(dest("dist"));
 };
 
-function jsTranspile(cb){
-    cb()
-};
-
-function jsBundle(cb) {
-    cb()
-};
-
-function jsMinify(cb) {
-    cb()
-};
-
-//plugins to minify and compile js
-
-exports.default = function () {
-    return src('src/*.js')
-    .pipe(babel())
-    .pipe(src('vender/*.js'))
-    .pipe(uglify())
-    .pipeline(rename({extname: '.min.js'}))
-    .pipe(dest('output/'));
+// Watch for changes in the code
+function watchPage() {
+    watch('src/scss/*.scss', scssCompiler);
+    watch('src/*.jsx', handleJSX);
 }
 
-exports.build = series (
-    parallel(cssTranspile, series(jsTranspile, jsBundle), parallel(cssMinify, jsMinify))
+
+// default gulp command
+exports.default = series (
+    scssCompiler,
+    handleJSX,
+    watchPage
 );
+
+
