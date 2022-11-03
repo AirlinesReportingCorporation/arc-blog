@@ -1,7 +1,13 @@
 var gulp = require("gulp");
+// JS Plugins
 var browserify = require("browserify");
 var babelify = require("babelify");
 var source = require("vinyl-source-stream");
+var rename = require("gulp-rename");
+var buffer = require("vinyl-buffer");
+var sourcemaps = require("gulp-sourcemaps");
+var uglify = require("gulp-uglify");
+
 
 var entryJS = 'src/index.jsx'
 var appJS = 'src/app.jsx'
@@ -28,13 +34,19 @@ gulp.task('js', function(){
         .transform(babelify, {presets: ['env']})
         .bundle()
         .pipe(source(entry))
+        .pipe(rename({extname: '.min.js'}))
+        .pipe(buffer())
+        .pipe(sourcemaps.init({ loadMAps: true }))
+        .pipe(uglify())
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest('dist'))
     })
 });
 
-gulp.task("default", function () {
-  return browserify("src/index.jsx")
-    .transform(babelify)
-    .bundle()
-    .pipe(source("index.jsx"))
-    .pipe(gulp.dest("dist/"));
-});
+// gulp.task("default", function () {
+//   return browserify("src/index.jsx")
+//     .transform(babelify)
+//     .bundle()
+//     .pipe(source("index.jsx"))
+//     .pipe(gulp.dest("dist/"));
+// });
