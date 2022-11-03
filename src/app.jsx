@@ -1,21 +1,15 @@
-'use strict';
-
-const e = React.createElement;
+import React from "react";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { liked: false };
   }
 
   render() {
     return (
-      'h1',
-      'Hello World'
+      <h1>Hello World</h1>
     );
   }
 }
 
-const domContainer = document.querySelector('#app');
-const root = ReactDOM.createRoot(domContainer);
-root.render(e(App));
+export default App;

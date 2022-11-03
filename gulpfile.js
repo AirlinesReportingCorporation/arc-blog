@@ -1,69 +1,40 @@
-const { src, dest, watch, series } = require('gulp');
-const babel = require('gulp-babel');
-// Handles minify errors
-const uglify = require('gulp-uglify');
-// Change the name of the file
-const rename = require('gulp-rename');
-// plugin to handle scss
-const sass = require('gulp-sass')(require('sass'));
-// prefixer for css (webkit)
-const prefix = require('gulp-autoprefixer');
-// minify the css
-const minify = require('gulp-clean-css');
-// server
-const server = require('gulp-webserver');
+var gulp = require("gulp");
+var browserify = require("browserify");
+var babelify = require("babelify");
+var source = require("vinyl-source-stream");
 
-//Functions
+var entryJS = 'src/index.jsx'
+var appJS = 'src/app.jsx'
+// var components = 'src/components/*.jsx'
+var jsFiles = [entryJS, appJS]
 
-// Handle SCSS to css and minifying it
-function scssCompiler(){
-    return src('src/scss/*.scss')
-    .pipe(sass())
-    .pipe(prefix())
-    .pipe(minify())
-    .pipe(rename({
-        basename: 'arc-blog',
-        suffix: '.min'
-    }))
-    .pipe(dest('dist'))
-};
+// Just a message to confirm gulp is working
+// gulp.task('message', function(){
+//     return console.log('Gulp is running...')
+// });
 
-// Use Babel to transform the jsx into js code for gulp
-function handleJSX(){
-    return src("src/app.jsx")
-    .pipe(babel({
-        plugins: ["@babel/plugin-transform-react-jsx"]
-      }))
-    .pipe(rename({
-        basename: 'arc-blog',
-        suffix: '.min'
-    }))
-    .pipe(dest("dist"));
-};
-
-// Watch for changes in the code
-function watchPage() {
-    watch('src/scss/*.scss', scssCompiler);
-    watch('src/*.jsx', handleJSX);
-}
-
-// server for testing
-function testServer(){
-    return src('src')	
-      .pipe(server({
-        livereload: true,
-        open: true,
-        port: 6000	// set a port to avoid conflicts with other local apps
-      }));
-}
-
-// default gulp command
-exports.default = series (
-    scssCompiler,
-    handleJSX,
-    testServer,
-    watchPage
-    
-);
+// Copy the HTML to dist file
+gulp.task('copyHTML', function(){
+    gulp.src('src/index.html')
+    .pipe(gulp.dest('dist'));
+});
 
 
+gulp.task('js', function(){
+    jsFiles.map(function( entry ){
+        return browserify({
+            entries: [entry]
+        })
+        .transform(babelify, {presets: ['env']})
+        .bundle()
+        .pipe(source(entry))
+    })
+});
+
+gulp.task("default", function () {
+  return browserify("src/index.jsx")
+    .transform(babelify)
+    .bundle()
+    .pipe(source("index.jsx"))
+    .pipe(gulp.dest("dist/"));
+});

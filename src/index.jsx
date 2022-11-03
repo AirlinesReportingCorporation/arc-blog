@@ -1,15 +1,12 @@
-import 'react-app-polyfill/ie11';
-import 'react-app-polyfill/stable';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app.jsx';
+import App from './app';
 import "./scss/main.scss";
 
 // var mountNode = document.getElementById('app');
 
 // ReactDOM.render(<App />, mountNode); 
 
-const domContainer = document.querySelector('#app');
-const root = ReactDOM.createRoot(domContainer);
-root.render(<App />, mountNode); 
+var mountNode = document.getElementById('app');
+
+ReactDOM.render(<App />, mountNode); 
