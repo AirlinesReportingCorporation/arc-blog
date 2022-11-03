@@ -30,7 +30,7 @@ function scssCompiler(){
 
 // Use Babel to transform the jsx into js code for gulp
 function handleJSX(){
-    return src("src/index.jsx")
+    return src("src/app.jsx")
     .pipe(babel({
         plugins: ["@babel/plugin-transform-react-jsx"]
       }))

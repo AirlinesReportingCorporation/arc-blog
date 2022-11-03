@@ -6,6 +6,10 @@ import ReactDOM from 'react-dom';
 import App from './app.jsx';
 import "./scss/main.scss";
 
-var mountNode = document.getElementById('app');
+// var mountNode = document.getElementById('app');
 
-ReactDOM.render(<App />, mountNode); 
+// ReactDOM.render(<App />, mountNode); 
+
+const domContainer = document.querySelector('#app');
+const root = ReactDOM.createRoot(domContainer);
+root.render(<App />, mountNode); 

@@ -2,14 +2,11 @@
   "name": "arc-blog",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "gulp"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AirlinesReportingCorporation/arc-blog.git"
-  },
+  "type": "module",
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -27,5 +24,9 @@
     "gulp-uglify": "^3.0.2",
     "gulp-webserver": "^0.9.1",
     "sass": "^1.55.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

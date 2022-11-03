@@ -1,11 +1,21 @@
-import React, { Component } from "react";
+'use strict';
 
-class App extends Component {
-  constructor() {
-    super();
+const e = React.createElement;
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { liked: false };
   }
 
   render() {
-      return ( <div>Test</div>);
+    return (
+      'h1',
+      'Hello World'
+    );
   }
 }
+
+const domContainer = document.querySelector('#app');
+const root = ReactDOM.createRoot(domContainer);
+root.render(e(App));
