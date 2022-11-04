@@ -29,7 +29,7 @@ gulp.task('copyHTML', function(){
 // TODO: figure out how to combine this method and the next one to output directly to dist
 gulp.task('css', function(){
     gulp.src('src/css/*.css')
-    .pipe(concatCss('src/css/main.css'))
+    .pipe(concatCss('arc-blog.min.css'))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(rename({
         basename: 'arc-blog',
@@ -38,12 +38,6 @@ gulp.task('css', function(){
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'))
 });
-
-// Moves the css file to the correct location
-gulp.task('move', function(){
-    return gulp.src('dist/src/*.css')
-    .pipe(gulp.dest('dist'));
-})
 
 gulp.task('js', function(){
     gulp.src('src/index.js')

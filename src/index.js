@@ -1,2 +1,6 @@
-let app = document.getElementById('#app');
- app.innerHTML="Hello World!"
+function changeHTML(){
+    let app = document.getElementById('app');
+    app.innerText="Hello World!"
+}
+
+changeHTML();
