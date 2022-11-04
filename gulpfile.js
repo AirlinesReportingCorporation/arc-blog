@@ -3,6 +3,9 @@ var gulp = require("gulp");
 // Shared Plugins
 
 // JS Plugins
+var browserify = require('browserify'); //Bundles multiple JS files into one 
+var babelify = require('babelify'); //transpiles React to vanilla JS
+var source = require('vinyl-source-stream'); //converts the browerify stream to a string to be saved as a file
 
 // CSS Plugins
 
@@ -18,9 +21,20 @@ gulp.task('copyHTML', function(){
     .pipe(gulp.dest('dist'));
 });
 
+// Path files
+var paths = {
+    main_js: ['src/index.jsx']
+}
 
 gulp.task('js', function(){
-    // Handle React
+    return browserify(paths.main_js) //Browserify bundles the JS
+    .transform(babelify) //Transpiles the react to vanilla js
+    .bundle()
+    .on('error', (err)=>{
+        console.log('JS Error', err)    //If there is an error, log it
+    })
+    .pipe(source('bundle.js')) //Otherwise use the vinyl source stream to convert the stream to a file
+    .pipe(gulp.dest('dist')) //Put the final file in the dist folder
 });
 
 gulp.task('css', function(){
