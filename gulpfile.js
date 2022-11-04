@@ -81,4 +81,6 @@ gulp.task('watch', function () {
     gulp.watch(['src/*.html'],['src/scss/*.scss'], ['src/*.jsx']);
   });
 
-gulp.task('default', gulp.series('connect', 'watch'));
+gulp.task('dev', gulp.series('connect', 'watch'));
+
+gulp.task('default', gulp.series('copyHTML', 'css', 'js'));
