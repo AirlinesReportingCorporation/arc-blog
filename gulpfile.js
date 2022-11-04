@@ -1,4 +1,5 @@
-var gulp = require("gulp");
+var gulp = require('gulp');
+var connect = require('gulp-connect');
 
 // Shared Plugins
 var rename = require('gulp-rename');
@@ -14,6 +15,7 @@ var buffer = require('vinyl-buffer');
 var sass = require('gulp-dart-sass'); //Plugin to change scss into css
 var tildeImporter = require('node-sass-tilde-importer');
 var cleanCSS = require('gulp-clean-css');
+const { parallel } = require('gulp');
 
 
 
@@ -24,8 +26,9 @@ var cleanCSS = require('gulp-clean-css');
 
 // Copy the HTML to dist file
 gulp.task('copyHTML', function(){
-    gulp.src('src/index.html')
-    .pipe(gulp.dest('dist'));
+   return gulp.src('src/index.html')
+    .pipe(gulp.dest('dist'))
+    .pipe(connect.reload());
 });
 
 // Path files
@@ -48,6 +51,7 @@ gulp.task('js', function(){
         extname: '.min.js'
     })) //renames JS
     .pipe(gulp.dest('dist')) //Put the final file in the dist folder
+    .pipe(connect.reload());
 });
 
 gulp.task('css', function(){
@@ -61,4 +65,28 @@ gulp.task('css', function(){
         extname: '.min.css'
     }))
     .pipe(gulp.dest('dist')) //for now, output the css file into the dist.
+    .pipe(connect.reload());
+})
+
+// Server
+gulp.task('connect', function(){
+    connect.server({
+        root: 'src',
+        livereload: true
+    })
+})
+
+// Watch for changes
+gulp.task('watch', function () {
+    gulp.watch(['src/*.html'],['src/scss/*.scss'], ['src/*.jsx']);
+  });
+
+gulp.task('default', gulp.series('connect', 'watch'));
+
+gulp.task('prod', function(){
+    connect.server({
+        root: 'dist',
+        livereload: true,
+        port:8081
+    })
 })
