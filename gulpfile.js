@@ -71,7 +71,7 @@ gulp.task('css', function(){
 // Server
 gulp.task('connect', function(){
     connect.server({
-        root: 'src',
+        root: 'dist',
         livereload: true
     })
 })
@@ -82,11 +82,3 @@ gulp.task('watch', function () {
   });
 
 gulp.task('default', gulp.series('connect', 'watch'));
-
-gulp.task('prod', function(){
-    connect.server({
-        root: 'dist',
-        livereload: true,
-        port:8081
-    })
-})
