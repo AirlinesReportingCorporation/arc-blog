@@ -1,0 +1,8 @@
+// importing the arccorp vars to test colors
+@use "~arccorp-vars/src/scss/main";
+
+#app {
+    justify-content: center;
+    width: 100%;
+    color: main.$teal;
+}
