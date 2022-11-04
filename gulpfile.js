@@ -11,6 +11,10 @@ var uglify = require('gulp-uglify');
 var buffer = require('vinyl-buffer');
 
 // CSS Plugins
+var sass = require('gulp-dart-sass'); //Plugin to change scss into css
+var tildeImporter = require('node-sass-tilde-importer');
+var cleanCSS = require('gulp-clean-css');
+
 
 
 // Just a message to confirm gulp is working
@@ -47,5 +51,14 @@ gulp.task('js', function(){
 });
 
 gulp.task('css', function(){
-    // Handle SCSS 
+    return gulp.src('src/scss/*.scss')
+    .pipe(sass({
+        importer: tildeImporter
+    }).on('error', sass.logError)) //change scss into css and log any errors that may occur
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(rename({
+        basename: 'arc-blog',
+        extname: '.min.css'
+    }))
+    .pipe(gulp.dest('dist')) //for now, output the css file into the dist.
 })
