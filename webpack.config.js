@@ -1,13 +1,16 @@
 const path = require("path");
 const webpack = require("webpack");
+const TerserPlugin = require("terser-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 
 module.exports = {
   mode: "development",
-  entry: "./src/index.jsx",
+  entry: {'arc-blog' : "./src/index.jsx"},
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: "arc-blog.js",
+    filename: "[name].min.js",
     publicPath: "/",
   },
   devServer: {
@@ -33,12 +36,25 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-            "style-loader",
+            {
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                    publicPath: path.join(__dirname, 'dist')
+                }
+            },
             "css-loader",
             "sass-loader"
         ],
       },
     ],
+  },
+  optimization: {
+    minimizer: [
+      // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
+      `...`,
+      new CssMinimizerPlugin(),
+    ],
+    minimize: true,
   },
   resolve: {
     extensions: [".js", ".jsx"],
@@ -47,5 +63,9 @@ module.exports = {
       new webpack.DefinePlugin({
         "process.env.NODE_ENV": JSON.stringify("development"),
       }),
+      new MiniCssExtractPlugin({
+          filename: "[name].min.css"
+      }),
+
   ].filter(Boolean),
 };
