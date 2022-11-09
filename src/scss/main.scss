@@ -1,10 +1,16 @@
 // importing the arccorp vars to test colors
 @use "~arccorp-vars/src/scss/main.scss";
 
+@use "./partials/blog-jumbo";
+
 // $teal : #189bb0;
 
 #app {
-    justify-content: center;
-    width: 100%;
-    color: main.$arc-teal;
+  justify-content: center;
+  width: 100%;
+  color: main.$arc-teal;
+}
+
+.arc-blog-posts .container{
+    max-width: 1280px;
 }
