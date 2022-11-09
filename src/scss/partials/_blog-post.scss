@@ -1,0 +1,44 @@
+@use "~arccorp-vars/src/scss/main.scss";
+
+.blog-post-hr{
+    border-bottom: 1px solid #b7b7b7;
+    padding-bottom: 18px;
+}
+
+.blog-post{
+    background: #ffffff;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.blog-post-tags {
+    display: inline-block;
+    color: main.$airfield;
+    text-transform: uppercase;
+    font-family: SourceSansPro-Bold, SourceSansPro-Regular, helvetica, arial,
+      sans-serif;
+    font-size: 15px;
+    line-height: 1rem;
+    margin: 10px 10px 10px 0;
+  }
+
+  .blog-post-date{
+    color: #6d6e71;
+  }
+
+a.blog-title{
+  font-size: 38px;
+  line-height: 48px;
+  color: #414042;
+  font-family: SourceSansPro-Regular, helvetica, arial, sans-serif;
+  min-height: 180px;
+}
+
+a.blog-title:hover {
+    color: #414042;
+}
+
+.blog-image {
+  max-height: 160px;
+  min-width: auto;
+}
