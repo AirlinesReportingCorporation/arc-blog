@@ -1,5 +1,21 @@
 import React, { Component } from "react";
 
+function imageExists(image_url) {
+
+    var http = new XMLHttpRequest();
+  
+  
+  
+    http.open("HEAD", image_url, false);
+  
+    http.send();
+  
+  
+  
+    return http.status != 404;
+  
+  }
+
 class BlogPost extends Component {
   constructor(props) {
     super(props);
@@ -31,13 +47,14 @@ class BlogPost extends Component {
             </a>
           </div>
           <div className="col-md-4 text-right">
-            <a href={this.props.link}>
+
+           {imageExists("https://www2.arccorp.com/globalassets/homepage/redesign/latest/" + this.props.icon + ".jpg") ? <a href={this.props.link}>
               <img
                 className="blog-image"
-                src={this.props.icon}
+                src={"https://www2.arccorp.com/globalassets/homepage/redesign/latest/" + this.props.icon + ".jpg"}
                 alt="blog-picture"
               />
-            </a>
+            </a> : ''}
           </div>
         </div>
       </div>

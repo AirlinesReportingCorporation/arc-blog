@@ -5,34 +5,48 @@ import BlogPost from "./components/BlogPost";
 class Blog extends Component {
   constructor() {
     super();
+    this.state = {
+      posts: [],
+      curIndex: 6,
+      prevIndex: 0,
+    };
   }
 
-  data = {
-    title: "ARC Moves Direct Connect and NDC Forward",
-    link: "https://www2.arccorp.com/articles-trends/the-latest/ARC-Moves-Direct-Connect-NDC-Forward/",
-    tags: ["conecton", "data"],
-    icon: "https://www2.arccorp.com/globalassets/homepage/redesign/latest/ARC-Moves-Direct-Connect-NDC-Forward.jpg",
-    date : "Nov 1, 2022"
+  componentDidMount() {
+    this.getPosts(this.state.prevIndex, this.state.curIndex);
   }
+
+  getPosts = (j, k) => {
+    var postArray = document.querySelectorAll(
+      ".content-block--pageItem__inside"
+    );
+    console.log(postArray);
+    for (let i = j; i < k; i++) {
+      const post = postArray[i];
+      var tempPosts = this.state.posts;
+      tempPosts.push({
+        link: post.querySelector(".ctaLink").getAttribute("href"),
+        title: post.querySelector(".ctaLink").getAttribute("title"),
+        tags: post
+          .querySelector(".content-block--pageItem__metadata")
+          .firstElementChild.innerHTML.split(","),
+        date: post.querySelector(".content-block--pageItem__metadata")
+          .lastElementChild.innerHTML,
+        icon: post.querySelector(".ctaLink").getAttribute("href").split("/")[3],
+      });
+      this.setState({ posts: tempPosts });
+    }
+  };
+
+  showMore = () => {
+    var tempIndex = this.state.curIndex;
+    this.setState({ prevIndex: tempIndex, curIndex: (tempIndex += 6) }, () => {
+      this.getPosts(this.state.prevIndex, this.state.curIndex);
+    });
+    console.log("click");
+  };
 
   render() {
-    var postArray = Array.from(document.querySelectorAll('.content-block--pageItem__inside'));
-    // function createPosts() {
-    //   postArray.map(post => ({
-    //     link: post.querySelector('.ctaLink').getAttribute('href'),
-    //     title: post.querySelector('.ctaLink').getAttribute('title'),
-    //     tags: post.querySelector('.content-block--pageItem__metadata').firstElementChild.innerHTML,
-    //     date: post.querySelector('.content-block--pageItem__metadata').lastElementChild.innerHTML,
-    //     icon: post.querySelector('.ctaLink').getAttribute('title').split('/')[3]
-    //   }))
-    // }
-    console.log(postArray)
-    // const title = postArray[0].querySelector('.ctaLink').getAttribute('HREF');
-    // console.log(title.split('/')[3]);
-    // console.log(postArray[0].querySelector('.content-block--pageItem__metadata').lastElementChild.innerHTML);
-    // var postArray = document.querySelectorAll('.content-block--pageItem__inside').map(post => ({
-    //   title: post.title, link: post.lnink, tags: post.tags
-    // }));
     return (
       <div className="arc-blog-page">
         <BlogJumbo
@@ -48,19 +62,26 @@ class Blog extends Component {
                 <div className="col-lg-6">
                   <h2 className="text-left">All Stories</h2>
                 </div>
-                <div className="col-lg-6"><div className="text-right">Sort feature here</div></div>
+                <div className="col-lg-6">
+                  <div className="text-right">Sort feature here</div>
+                </div>
               </div>
             </div>
             {/* Figure out how to get this in react without dom manipulation */}
-            {postArray.map(post=> (
-              <BlogPost 
-              title={post.querySelector('.ctaLink').getAttribute('title')}
-              link={post.querySelector('.ctaLink').getAttribute('href')}
-              tags={post.querySelector('.content-block--pageItem__metadata').firstElementChild.innerHTML.slice(',')}
-              date={post.querySelector('.content-block--pageItem__metadata').lastElementChild.innerHTML}
-              icon={post.querySelector('.ctaLink').getAttribute('title').split('/')[3]}
+            {this.state.posts.map((post) => (
+              <BlogPost
+                title={post.title}
+                link={post.link}
+                tags={post.tags}
+                date={post.date}
+                icon={post.icon}
               />
-            ))} 
+            ))}{" "}
+            <div className="text-center">
+              <a onClick={this.showMore} className="ctaBtn">
+                View More
+              </a>
+            </div>
           </div>
         </div>
       </div>
