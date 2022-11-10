@@ -22,49 +22,21 @@ class Blog extends Component {
       ".content-block--pageItem__inside"
     );
     console.log(postArray);
-    let i = startIndex;
-    while (i < endIndex) {
-      const post = postArray[i];
-      var tempPosts = this.state.posts;
-       if (this.state.filter === "") {
-        tempPosts.push({
-          link: post.querySelector(".ctaLink").getAttribute("href"),
-          title: post.querySelector(".ctaLink").getAttribute("title"),
-          tags: post
-            .querySelector(".content-block--pageItem__metadata")
-            .firstElementChild.innerHTML.split(","),
-          date: post.querySelector(".content-block--pageItem__metadata")
-            .lastElementChild.innerHTML,
-          icon: post
-            .querySelector(".ctaLink")
-            .getAttribute("href")
-            .split("/")[3],
-        });
-        i++;
-      }
-      else if (
-        post
-          .querySelector(".content-block--pageItem__metadata")
-          .firstElementChild.innerText.toLowerCase()
-          .indexOf(this.state.filter) > -1
-      ) {
-        tempPosts.push({
-          link: post.querySelector(".ctaLink").getAttribute("href"),
-          title: post.querySelector(".ctaLink").getAttribute("title"),
-          tags: post
-            .querySelector(".content-block--pageItem__metadata")
-            .firstElementChild.innerHTML.split(","),
-          date: post.querySelector(".content-block--pageItem__metadata")
-            .lastElementChild.innerHTML,
-          icon: post
-            .querySelector(".ctaLink")
-            .getAttribute("href")
-            .split("/")[3],
-        });
-        i++;
-      }
-    }
-    this.setState({ posts: tempPosts });
+  //  Check to see if the filter is an empty string
+  if(this.state.filter === "") {
+    console.log('empty, return all')
+  }
+  else if (this.state.filter !== ""){
+    console.log("There is a filter: " + this.state.filter)
+  }
+  // If it is then
+      // We return the next 6 items -- the first time running will be 0 - 5th index
+  // If it is not an empty string then check the tags of the post to see if its in there
+      // if it is then push that post to the array and increment the num of posts until we have 6
+      // otherwise keep going through the array until we get 6 more.
+
+      // Notes:
+      // We may need to change the show more function to reflect if there is a filter as well otherwise its only showing potentially any within the next 6 indecies. 
   };
 
   showMore = () => {
