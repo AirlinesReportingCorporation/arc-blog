@@ -9,6 +9,7 @@ class Blog extends Component {
       posts: [],
       curIndex: 6,
       prevIndex: 0,
+      filter: "data"
     };
   }
 
@@ -21,9 +22,18 @@ class Blog extends Component {
       ".content-block--pageItem__inside"
     );
     console.log(postArray);
-    for (let i = j; i < k; i++) {
+    // if no selection
+    let i = j;
+    while (i < k) {
+      
       const post = postArray[i];
       var tempPosts = this.state.posts;
+      console.log(post
+        .querySelector(".content-block--pageItem__metadata")
+        .firstElementChild.innerText);
+     if (post
+      .querySelector(".content-block--pageItem__metadata")
+      .firstElementChild.innerText.toLowerCase().indexOf(this.state.filter) > -1) {
       tempPosts.push({
         link: post.querySelector(".ctaLink").getAttribute("href"),
         title: post.querySelector(".ctaLink").getAttribute("title"),
@@ -34,8 +44,26 @@ class Blog extends Component {
           .lastElementChild.innerHTML,
         icon: post.querySelector(".ctaLink").getAttribute("href").split("/")[3],
       });
-      this.setState({ posts: tempPosts });
+      i++;
+     }
+     else if (this.state.filter === "") {
+      tempPosts.push({
+        link: post.querySelector(".ctaLink").getAttribute("href"),
+        title: post.querySelector(".ctaLink").getAttribute("title"),
+        tags: post
+          .querySelector(".content-block--pageItem__metadata")
+          .firstElementChild.innerHTML.split(","),
+        date: post.querySelector(".content-block--pageItem__metadata")
+          .lastElementChild.innerHTML,
+        icon: post.querySelector(".ctaLink").getAttribute("href").split("/")[3],
+      });
+      i++;
+     }
+     
     }
+    this.setState({ posts: tempPosts });
+
+    // if filter then 
   };
 
   showMore = () => {
