@@ -3,6 +3,7 @@
 
 @use "./partials/blog-jumbo";
 @use "./partials/blog-post";
+@use "./partials/select";
 // $teal : #189bb0;
 
 #app {
@@ -25,19 +26,6 @@
   font-family: SourceSansPro-SemiBold, Arial, Helvetica, sans-serif;
   font-size: 38px;
   line-height: 47px;
-}
-
-#post-filter {
-  background: #ffffff;
-  border: 1px solid #eaeaea;
-  box-shadow: none;
-  font-size: 0.875rem;
-  color: #6c6c6c;
-  width: 347px;
-  text-align: left;
-  min-height: 3rem;
-  padding: 0.875rem;
-  border-radius: 0;
 }
 
 .page-grid {

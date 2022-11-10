@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import BlogJumbo from "./components/BlogJumbo";
 import BlogPost from "./components/BlogPost";
+import Select from 'react-select'
 
-var options = [
-  "All Topics",
-  "Innovation",
-  "Distribution",
-  "Data",
-  "Connection",
+const options = [
+  {value: "all topics", label: "All Topics"},
+  {value: "innovation", label: "Innovation"},
+  {value: "distribution", label: "Distribution"},
+  {value: "data", label: "Data"},
+  {value: "connection", label: "Connection"}
 ];
 
+  
 class Blog extends Component {
   constructor() {
     super();
@@ -157,14 +159,16 @@ class Blog extends Component {
                 </div>
                 <div className="col-lg-6">
                   <div className="text-right">
-                    <select
+                    <Select options={options} placeholder="All Topics" isClearable={false} isSearchable={false}
+ />
+                    {/* <select
                       onChange={(e) => this.updateFilter(e.target.value)}
                       id="post-filter"
                     >
                       {options.map((option, id) => (
-                        <option key={id}>{option}</option>
+                        <option className="filter-option" key={id}>{option}</option>
                       ))}
-                    </select>
+                    </select> */}
                   </div>
                 </div>
               </div>
