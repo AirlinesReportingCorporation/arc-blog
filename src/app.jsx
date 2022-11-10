@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import BlogJumbo from "./components/BlogJumbo";
 import BlogPost from "./components/BlogPost";
 
+var options = [
+  "All Topics",
+  "Innovation",
+  "Distribution",
+  "Data",
+  "Connection",
+];
+
 class Blog extends Component {
   constructor() {
     super();
@@ -100,17 +108,35 @@ class Blog extends Component {
   showMore = () => {
     if (this.state.filter == "") {
       var tempIndex = this.state.curIndex;
-      this.setState({ prevIndex: tempIndex, curIndex: (tempIndex += 6) }, () => {
-        this.getPosts(this.state.prevIndex, this.state.curIndex);
-      });
-      console.log("show more with no filter")
+      this.setState(
+        { prevIndex: tempIndex, curIndex: (tempIndex += 6) },
+        () => {
+          this.getPosts(this.state.prevIndex, this.state.curIndex);
+        }
+      );
+      console.log("show more with no filter");
     } else {
-      console.log(this.state.filteredIndex + "from show more")
-      var tempIndex = this.state.filteredIndex
-      console.log(tempIndex + "from show more")
+      console.log(this.state.filteredIndex + "from show more");
+      var tempIndex = this.state.filteredIndex;
+      console.log(tempIndex + "from show more");
       this.getFilteredPosts(tempIndex);
     }
     console.log("click");
+  };
+
+  updateFilter = (e) => {
+    if (e.toLowerCase() == "all topics") {
+      this.setState({ filter: "", filteredIndex: 0, posts: [], prevIndex: 0, curIndex: 6}, () => {
+        this.getPosts(this.state.prevIndex, this.state.curIndex);
+      });
+    } else {
+      this.setState(
+        { filter: e.toLowerCase(), filteredIndex: 0, posts: [] },
+        () => {
+          this.getFilteredPosts(0);
+        }
+      );
+    }
   };
 
   render() {
@@ -130,11 +156,19 @@ class Blog extends Component {
                   <h2 className="text-left">All Stories</h2>
                 </div>
                 <div className="col-lg-6">
-                  <div className="text-right">Sort feature here</div>
+                  <div className="text-right">
+                    <select
+                      onChange={(e) => this.updateFilter(e.target.value)}
+                      id="post-filter"
+                    >
+                      {options.map((option, id) => (
+                        <option key={id}>{option}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
-            {/* Figure out how to get this in react without dom manipulation */}
             {this.state.posts.map((post) => (
               <BlogPost
                 title={post.title}
