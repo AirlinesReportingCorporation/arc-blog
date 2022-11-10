@@ -159,7 +159,7 @@ class Blog extends Component {
                 </div>
                 <div className="col-lg-6">
                   <div className="text-right">
-                    <Select options={options} placeholder="All Topics" isClearable={false} isSearchable={false}
+                    <Select options={options} onChange={(e) => this.updateFilter(e.value)} placeholder="All Topics" isClearable={false} isSearchable={false}
  />
                     {/* <select
                       onChange={(e) => this.updateFilter(e.target.value)}
