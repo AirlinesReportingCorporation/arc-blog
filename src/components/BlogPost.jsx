@@ -21,7 +21,10 @@ class BlogPost extends Component {
     super(props);
   }
 
+
   render() {
+    var index = this.props.tags.indexOf('Latest');
+    if (index > -1) {this.props.tags.splice(index, 1)}
     return (
       <div className="blog-post blog-post-hr">
         <div className="row">
@@ -32,7 +35,7 @@ class BlogPost extends Component {
                   this.props.tags.map((tag, index) => {
                     return (
                       <span key={index}>
-                        {tag + (index == !this.props.tags.length ? " • " : "")}
+                        {(index ? " • " : "")+ tag}
                       </span>
                     );
                   })
