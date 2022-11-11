@@ -51,7 +51,7 @@ class BlogPost extends Component {
           </div>
           <div className="col-md-4 text-right">
 
-           {imageExists("https://www2.arccorp.com/globalassets/homepage/redesign/latest/" + this.props.icon + ".jpg") ? <a href={this.props.link}>
+           {imageExists("https://www2.arccorp.com/globalassets/homepage/redesign/latest/" + this.props.icon + ".jpg") ? <a href={"https://www2.arccorp.com" + this.props.link}>
               <img
                 className="blog-image"
                 src={"https://www2.arccorp.com/globalassets/homepage/redesign/latest/" + this.props.icon + ".jpg"}
