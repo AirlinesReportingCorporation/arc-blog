@@ -5,16 +5,16 @@
 }
 
 .css-1pahdxg-control:hover {
-   border-color: #6c6c6c !important;
+   border-color: #D4D4D4 !important;
 }
 .css-1pahdxg-control {
     box-shadow: none !important;
-    border-color: #6c6c6c !important;
+    border-color: #D4D4D4 !important;
 }
 
-// .css-6j8wv5-Input {
-//     // 
-// }
+.css-1s2u09g-control {
+    border-color: #D4D4D4;
+}
 
 .css-qc6sy-singleValue, .css-14el2xx-placeholder{
     font-family: SourceSansPro-Bold;
@@ -51,4 +51,13 @@
     svg {
         color: white
     }
+}
+
+.css-26l3qy-menu {
+    box-shadow: none;
+}
+
+.css-4ljt47-MenuList {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
