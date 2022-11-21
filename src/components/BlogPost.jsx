@@ -49,7 +49,7 @@ class BlogPost extends Component {
               {this.props.title}
             </a>
           </div>
-          <div className="col-sm-4 text-right">
+          <div className="col-sm-4 text-right blog-post-icon">
 
            {imageExists("https://www2.arccorp.com/globalassets/homepage/redesign/latest/" + this.props.icon + ".jpg") ? <a href={"https://www2.arccorp.com" + this.props.link}>
               <img
