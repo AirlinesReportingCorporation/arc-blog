@@ -6,6 +6,7 @@
 
 .css-1pahdxg-control:hover {
    border-color: #D4D4D4 !important;
+   cursor: pointer;
 }
 .css-1pahdxg-control {
     box-shadow: none !important;
@@ -14,6 +15,10 @@
 
 .css-1s2u09g-control {
     border-color: #D4D4D4;
+}
+
+.css-1s2u09g-control:hover, .css-yt9ioa-option:hover {
+    cursor: pointer;
 }
 
 .css-qc6sy-singleValue, .css-14el2xx-placeholder{
@@ -35,6 +40,7 @@
 } 
 
 .css-1n7v3ny-option:hover, .css-1n7v3ny-option {
+    cursor: pointer;
     text-decoration: none !important;
     background-color: #f8f9fa !important;
     color: #6c6c6c !important;
