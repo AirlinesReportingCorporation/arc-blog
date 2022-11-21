@@ -182,7 +182,7 @@ class Blog extends Component {
                 icon={post.icon}
               />
             ))}{" "}
-            <div className="text-center">
+            <div className="text-center blog-ctaBtn">
               <a onClick={this.showMore} className="ctaBtn">
                 View More
               </a>
