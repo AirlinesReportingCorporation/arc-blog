@@ -35,3 +35,19 @@
 .page-grid {
   display: none;
 }
+
+@media (max-width: 576px) {
+  .blog-posts-header .row {
+    h2 {
+      text-align: center;
+    }
+  }
+}
+
+@media (min-width: 575px) {
+  .blog-posts-header .row {
+    h2 {
+      text-align: left;
+    }
+  }
+}

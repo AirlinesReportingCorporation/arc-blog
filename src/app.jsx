@@ -154,10 +154,10 @@ class Blog extends Component {
           <div className="container">
             <div className="blog-posts-header">
               <div className="row">
-                <div className="col-lg-6">
+                <div className="col-sm-6">
                   <h2 className="text-left">All Stories</h2>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-sm-6">
                   <div className="text-right">
                     <Select options={options} onChange={(e) => this.updateFilter(e.value)} placeholder="All Topics" isClearable={false} isSearchable={false}
  />

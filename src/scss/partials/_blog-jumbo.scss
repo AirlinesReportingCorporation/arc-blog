@@ -6,6 +6,13 @@
   
   .blog-jumbo{
       padding: 50px 0px 60px 0px;
+
+      .row {
+        padding-left: 18px;
+        padding-right: 18px;
+        margin-left: -0.375rem;
+        margin-right: -0.375rem;
+      }
   }
   
   .blog-jumbo .container {

@@ -28,7 +28,7 @@ class BlogPost extends Component {
     return (
       <div className="blog-post blog-post-hr">
         <div className="row">
-          <div className="col-md-8">
+          <div className="col-sm-8">
             <div className="blog-post-data">
               <div className="blog-post-tags">
                 {this.props.tags.length > 1 ? (
@@ -49,7 +49,7 @@ class BlogPost extends Component {
               {this.props.title}
             </a>
           </div>
-          <div className="col-md-4 text-right">
+          <div className="col-sm-4 text-right">
 
            {imageExists("https://www2.arccorp.com/globalassets/homepage/redesign/latest/" + this.props.icon + ".jpg") ? <a href={"https://www2.arccorp.com" + this.props.link}>
               <img
