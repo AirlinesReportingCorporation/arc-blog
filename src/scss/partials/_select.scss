@@ -7,18 +7,22 @@
 .css-1pahdxg-control:hover {
    border-color: #D4D4D4 !important;
    cursor: pointer;
+   border-radius: 0 !important;
 }
 .css-1pahdxg-control {
     box-shadow: none !important;
     border-color: #D4D4D4 !important;
+    border-radius: 0 !important;
 }
 
 .css-1s2u09g-control {
-    border-color: #D4D4D4;
+    border-color: #D4D4D4 !important;
+    border-radius: 0;
 }
 
 .css-1s2u09g-control:hover, .css-yt9ioa-option:hover {
     cursor: pointer;
+    border-radius: 0;
 }
 
 .css-qc6sy-singleValue, .css-14el2xx-placeholder{
@@ -60,7 +64,7 @@
 }
 
 .css-26l3qy-menu {
-    box-shadow: none;
+    border-radius: 0 !important;
 }
 
 .css-4ljt47-MenuList {
