@@ -145,10 +145,10 @@ class Blog extends Component {
     return (
       <div className="arc-blog-page">
         <BlogJumbo
-          background="https://www2.arccorp.com/globalassets/homepage/redesign/slides/arcpay-jumbo.jpg"
-          link="https://www2.arccorp.com/articles-trends/the-latest/5-Things-Every-Agency-Should-Know-About-Processing-Credit-Card-Payments/?utm_source=Jumbo_Blog"
-          title="5 Things Every Agency Should Know About Processing Credit Card Payments"
-          tags={["Data", "Innovation"]}
+          background="https://www2.arccorp.com/globalassets/homepage/redesign/slides/Direct-Connect-blog-header.png"
+          link="https://www2.arccorp.com/articles-trends/the-latest/ARC-Moves-Direct-Connect-NDC-Forward/?utm_source=Jumbo_Blog"
+          title="ARC Moves Direct Connect and NDC Forward"
+          tags={["Connection", "Data"]}
         />
         <div className="blog-posts">
           <div className="container">
