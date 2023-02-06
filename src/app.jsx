@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import BlogJumbo from "./components/BlogJumbo";
+import {Stickynav} from "arccorp-vars";
+// import BlogJumbo from "./components/BlogJumbo";
 import BlogPost from "./components/BlogPost";
 import Select from 'react-select'
+import PopularArtcles from "./components/PopularArticles";
 
 const options = [
   {value: "all topics", label: "All Topics"},
@@ -144,15 +146,18 @@ class Blog extends Component {
   render() {
     return (
       <div className="arc-blog-page">
-        <BlogJumbo
+        <Stickynav title="Articles"/>
+        {/* Need to add in the ability to change color */}
+        <PopularArtcles/>
+        {/* <BlogJumbo
           background="https://www2.arccorp.com/globalassets/homepage/redesign/slides/Direct-Connect-blog-header.png"
           link="https://www2.arccorp.com/articles-trends/the-latest/ARC-Moves-Direct-Connect-NDC-Forward/?utm_source=Jumbo_Blog"
           title="ARC Moves Direct Connect and NDC Forward"
           tags={["Connection", "Data"]}
-        />
+        /> */}
         <div className="blog-posts">
           <div className="container">
-            <div className="blog-posts-header">
+            {/* <div className="blog-posts-header">
               <div className="row">
                 <div className="col-sm-6">
                   <h2 className="text-left">All Stories</h2>
@@ -168,11 +173,11 @@ class Blog extends Component {
                       {options.map((option, id) => (
                         <option className="filter-option" key={id}>{option}</option>
                       ))}
-                    </select> */}
+                    </select>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
             {this.state.posts.map((post) => (
               <BlogPost
                 title={post.title}
