@@ -36,7 +36,7 @@ class BlogPost extends Component {
    
     console.log("image:" + imageUrl)
     return (
-      <div className={this.props.size? this.props.size : "col-lg-3"}>
+      <div className={this.props.size? this.props.size : "col-lg-3 blog-columns"}>
         <div className="blog-post" style={{backgroundColor: this.props.color ? this.props.color : '#f7f5f6'}}>
           <div className="post-top">
             <div

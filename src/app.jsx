@@ -149,40 +149,54 @@ class Blog extends Component {
     return (
       <div className="arc-blog-page">
         <div className="arc-blog-top">
-        <Stickynav title="Articles" />
-        {/* Need to add in the ability to change color */}
-        <PopularArtcles />
-        <BlogJumbo
-          background="https://www2.arccorp.com/globalassets/homepage/redesign/slides/Direct-Connect-blog-header.png"
-          link="https://www2.arccorp.com/articles-trends/the-latest/ARC-Moves-Direct-Connect-NDC-Forward/?utm_source=Jumbo_Blog"
-          title="ARC Moves Direct Connect and NDC Forward"
-          tags={["Connection", "Data"]}
-        />
+          <Stickynav title="Articles" />
+          {/* Need to add in the ability to change color */}
+          <PopularArtcles />
+          <BlogJumbo
+            background="https://www2.arccorp.com/globalassets/homepage/redesign/slides/Direct-Connect-blog-header.png"
+            link="https://www2.arccorp.com/articles-trends/the-latest/ARC-Moves-Direct-Connect-NDC-Forward/?utm_source=Jumbo_Blog"
+            title="ARC Moves Direct Connect and NDC Forward"
+            tags={["Connection", "Data"]}
+          />
         </div>
-        <div className="blog-posts">
-          <div className="container">
-            {/* <div className="blog-posts-header">
-              <div className="row">
-                <div className="col-sm-6">
-                  <h2 className="text-left">All Stories</h2>
-                </div>
-                <div className="col-sm-6">
-                  <div className="text-right">
-                    <Select options={options} onChange={(e) => this.updateFilter(e.value)} placeholder="All Topics" isClearable={false} isSearchable={false}
+        <div className="container">
+          <div className="row blog-nav">
+            <div className="nav-col">All</div>
+            <div className="nav-col">|</div>
+            <div className="nav-col">Thought Leadership</div>
+            <div className="nav-col">GBTA</div>
+            <div className="nav-col">Data</div>
+            <div className="nav-col">Airlines</div>
+            <div className="nav-col">Agencies</div>
+            <div className="nav-col">Omnichannel</div>
+            <div className="nav-col">NDC</div>
+            <div className="nav-col">Travel Connect</div>
+          </div>
+        </div>
+        <div className="container blog-posts-header">
+          <div className="row">
+            <div className="col-lg-12" style={{padding: 0}}>
+              <h2 className="text-left">Latest Stories</h2>
+            </div>
+            <div className="col-sm-6">
+              <div className="text-right">
+                {/* <Select options={options} onChange={(e) => this.updateFilter(e.value)} placeholder="All Topics" isClearable={false} isSearchable={false}
  />
-                    {/* <select
+                     <select
                       onChange={(e) => this.updateFilter(e.target.value)}
                       id="post-filter"
                     >
                       {options.map((option, id) => (
                         <option className="filter-option" key={id}>{option}</option>
                       ))}
-                    </select>
-                  </div>
-                </div>
+                    </select> */}
               </div>
-            </div> */}
-            <div className="container" style={{ maxWidth: "1200px" }}>
+            </div>
+          </div>
+        </div>
+        <div className="blog-posts">
+          <div className="container" style={{ maxWidth: "1200px" }}>
+            <div className="container" style={{ maxWidth: "1280px" }}>
               <div className="row">
                 {this.state.posts.map((post) => (
                   <BlogPost

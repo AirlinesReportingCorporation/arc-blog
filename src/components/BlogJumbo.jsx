@@ -64,16 +64,16 @@ class BlogJumbo extends Component {
               <BlogPost
                 color="white"
                 size="col-lg-6"
-                image="https://www2.arccorp.com/globalassets/homepage/redesign/slides/Direct-Connect-blog-header.png"
-                link="https://www2.arccorp.com/articles-trends/the-latest/ARC-Moves-Direct-Connect-NDC-Forward/?utm_source=Jumbo_Blog"
-                title="ARC Moves Direct Connect and NDC Forward"
-                tags={["Connection", "Data"]}
-                date="Jan 3"
+                image="https://www2.arccorp.com/globalassets/homepage/redesign/latest/book-now-pay-later-options-for-travel-agencies.jpg"
+                link="https://www2.arccorp.com/articles-trends/the-latest/book-now-pay-later-options-for-travel-agencies/"
+                title="Travel Agents: Empower Your Customers to Book Now and Pay Laterd"
+                tags={["Connection", "Distribution"]}
+                date="Dec 3"
               />
               <BlogPost
                 color="white"
                 size="col-lg-6"
-                image="https://www2.arccorp.com/globalassets/homepage/redesign/slides/Direct-Connect-blog-header.png"
+                image="https://www2.arccorp.com/globalassets/homepage/redesign/latest/Attract-More-Visitors-Destination-Gateway.jpg"
                 link="https://www2.arccorp.com/articles-trends/the-latest/ARC-Moves-Direct-Connect-NDC-Forward/?utm_source=Jumbo_Blog"
                 title="ARC Moves Direct Connect and NDC Forward"
                 tags={["Connection", "Data"]}
