@@ -1,14 +1,12 @@
 @use "~arccorp-vars/src/scss/main.scss";
 
-.blog-post-hr{
-    border-bottom: 1px solid #b7b7b7;
-    padding-bottom: 18px;
-}
-
-.blog-post{
-    background: #ffffff;
+.blog-post {
+    background: #f7f5f6;
     margin-bottom: 30px;
     position: relative;
+    border-radius: 10px;
+    max-width: 275px;
+    width: 100%;
 }
 
 .blog-post-tags {
@@ -39,6 +37,7 @@ a.blog-title:hover {
 }
 
 .blog-image {
-  max-height: 160px;
-  min-width: auto;
+  border-radius: 10px 10px 0 0;
+  max-width: 275px;
+  width: 100%;
 }

@@ -1,19 +1,18 @@
 import React, { Component } from "react";
-import {Stickynav} from "arccorp-vars";
+import { Stickynav } from "arccorp-vars";
 // import BlogJumbo from "./components/BlogJumbo";
 import BlogPost from "./components/BlogPost";
-import Select from 'react-select'
+import Select from "react-select";
 import PopularArtcles from "./components/PopularArticles";
 
 const options = [
-  {value: "all topics", label: "All Topics"},
-  {value: "innovation", label: "Innovation"},
-  {value: "distribution", label: "Distribution"},
-  {value: "data", label: "Data"},
-  {value: "connection", label: "Connection"}
+  { value: "all topics", label: "All Topics" },
+  { value: "innovation", label: "Innovation" },
+  { value: "distribution", label: "Distribution" },
+  { value: "data", label: "Data" },
+  { value: "connection", label: "Connection" },
 ];
 
-  
 class Blog extends Component {
   constructor() {
     super();
@@ -130,9 +129,12 @@ class Blog extends Component {
 
   updateFilter = (e) => {
     if (e.toLowerCase() == "all topics") {
-      this.setState({ filter: "", filteredIndex: 0, posts: [], prevIndex: 0, curIndex: 6}, () => {
-        this.getPosts(this.state.prevIndex, this.state.curIndex);
-      });
+      this.setState(
+        { filter: "", filteredIndex: 0, posts: [], prevIndex: 0, curIndex: 6 },
+        () => {
+          this.getPosts(this.state.prevIndex, this.state.curIndex);
+        }
+      );
     } else {
       this.setState(
         { filter: e.toLowerCase(), filteredIndex: 0, posts: [] },
@@ -146,9 +148,9 @@ class Blog extends Component {
   render() {
     return (
       <div className="arc-blog-page">
-        <Stickynav title="Articles"/>
+        <Stickynav title="Articles" />
         {/* Need to add in the ability to change color */}
-        <PopularArtcles/>
+        <PopularArtcles />
         {/* <BlogJumbo
           background="https://www2.arccorp.com/globalassets/homepage/redesign/slides/Direct-Connect-blog-header.png"
           link="https://www2.arccorp.com/articles-trends/the-latest/ARC-Moves-Direct-Connect-NDC-Forward/?utm_source=Jumbo_Blog"
@@ -178,15 +180,19 @@ class Blog extends Component {
                 </div>
               </div>
             </div> */}
-            {this.state.posts.map((post) => (
-              <BlogPost
-                title={post.title}
-                link={post.link}
-                tags={post.tags}
-                date={post.date}
-                icon={post.icon}
-              />
-            ))}{" "}
+            <div className="container" style={{ maxWidth: "1200px" }}>
+              <div className="row">
+                {this.state.posts.map((post) => (
+                  <BlogPost
+                    title={post.title}
+                    link={post.link}
+                    tags={post.tags}
+                    date={post.date}
+                    icon={post.icon}
+                  />
+                ))}{" "}
+              </div>
+            </div>
             <div className="text-center blog-ctaBtn">
               <a onClick={this.showMore} className="ctaBtn">
                 View More
