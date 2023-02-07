@@ -3,7 +3,7 @@ import React from "react";
 export default function PopularArtcles() {
 
     return(
-        <div className="container" style={{maxWidth: "1200px", marginTop:"60px", marginBottom: "60px"}}>
+        <div className="container popular-container" style={{maxWidth: "1200px", marginTop:"60px", marginBottom: "60px"}}>
         {/* Most popular Articles here */}
         <div style={{color: "#2a2b2c", fontWeight: "bold", marginBottom: "15px"}}>
             Most Popular Articles

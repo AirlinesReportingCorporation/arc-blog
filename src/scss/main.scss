@@ -1,6 +1,7 @@
 // importing the arccorp vars to test colors
 @use "~arccorp-vars/src/scss/main.scss";
 
+@use "./partials/blog-popular";
 @use "./partials/blog-jumbo";
 @use "./partials/blog-post";
 @use "./partials/select";
@@ -14,6 +15,10 @@
 
 .blog-posts .container {
   max-width: 1280px;
+}
+
+.arc-blog-top {
+  background-color: #f7f5f6;
 }
 
 .blog-posts-header .row {

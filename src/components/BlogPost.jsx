@@ -37,7 +37,7 @@ class BlogPost extends Component {
     console.log("image:" + imageUrl)
     return (
       <div className="col-lg-3">
-        <div className="blog-post">
+        <div className="blog-post" style={{backgroundColor: this.props.color ? this.props.color : '#f7f5f6'}}>
           <div className="post-top">
             <div
               className="blog-post-icon"
