@@ -20,10 +20,11 @@ class BlogPost extends Component {
     var index = this.props.tags.indexOf("Latest");
     if (index > -1) {
       this.props.tags.splice(index, 1);
+    }
 
       var imageUrl = "";
 
-      imageExists(
+      this.props.image ? imageUrl = this.props.image : (imageExists(
         "https://www2.arccorp.com/globalassets/homepage/redesign/latest/" +
           this.props.icon +
           ".jpg"
@@ -31,12 +32,11 @@ class BlogPost extends Component {
         ? imageUrl = ('https://www2.arccorp.com/globalassets/homepage/redesign/latest/' +
           this.props.icon +
           '.jpg')
-        : imageUrl = ""
-    }
-
+        : imageUrl = "")
+   
     console.log("image:" + imageUrl)
     return (
-      <div className="col-lg-3">
+      <div className={this.props.size? this.props.size : "col-lg-3"}>
         <div className="blog-post" style={{backgroundColor: this.props.color ? this.props.color : '#f7f5f6'}}>
           <div className="post-top">
             <div

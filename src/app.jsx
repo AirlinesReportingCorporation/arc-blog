@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Stickynav } from "arccorp-vars";
-// import BlogJumbo from "./components/BlogJumbo";
+import BlogJumbo from "./components/BlogJumbo";
 import BlogPost from "./components/BlogPost";
 import Select from "react-select";
 import PopularArtcles from "./components/PopularArticles";
@@ -152,12 +152,12 @@ class Blog extends Component {
         <Stickynav title="Articles" />
         {/* Need to add in the ability to change color */}
         <PopularArtcles />
-        {/* <BlogJumbo
+        <BlogJumbo
           background="https://www2.arccorp.com/globalassets/homepage/redesign/slides/Direct-Connect-blog-header.png"
           link="https://www2.arccorp.com/articles-trends/the-latest/ARC-Moves-Direct-Connect-NDC-Forward/?utm_source=Jumbo_Blog"
           title="ARC Moves Direct Connect and NDC Forward"
           tags={["Connection", "Data"]}
-        /> */}
+        />
         </div>
         <div className="blog-posts">
           <div className="container">
