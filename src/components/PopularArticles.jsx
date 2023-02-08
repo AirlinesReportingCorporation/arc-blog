@@ -2,45 +2,53 @@ import React from "react";
 
 export default function PopularArtcles() {
 
+    var popularArticles = [
+        {
+          date: "Updated Every Monday",
+          read: "",
+          title: "ARC Data Shows Weekly Air Travel Recovery      ",
+          link: "https://www2.arccorp.com/articles-trends/the-latest/coronavirus/",
+        },
+        {
+          date: "Jan 12",
+          read: "2 MIN READ",
+          title: "ARC’s Top Insights from 2021",
+          link:
+            "https://www2.arccorp.com/articles-trends/the-latest/arc-top-insights-2021/",
+        },
+        {
+          date: "May 1",
+          read: "2 MIN READ",
+          title: "ARC’s COVID-19 Resources for Airlines and Travel Agencies",
+          link:
+            "https://www2.arccorp.com/articles-trends/the-latest/arcs-covid-19-resources-for-airlines-and-travel-agencies/",
+        },
+        {
+          date: "Jan 27",
+          read: "1 MIN READ",
+          title:
+            "Top Corporate Equity Index Score Reflects ARC’s Commitment to Diversity, Inclusion",
+          link:
+            "https://www2.arccorp.com/articles-trends/the-latest/arc-receives-top-corporate-equity-index-score-2022/",
+        },
+      ]
+
     return(
-        <div className="container popular-container" style={{maxWidth: "1200px", marginTop:"60px", marginBottom: "60px"}}>
+        <div className="container popular-container">
         {/* Most popular Articles here */}
-        <div style={{color: "#2a2b2c", fontWeight: "bold", marginBottom: "15px"}}>
+        <div className="popular-title">
             Most Popular Articles
         </div>
         <div className="row">
+        {popularArticles.map((article) => (
             <div className="col-lg-3" style={{color: "#2a2b2c"}}>
-                <div className="article-outer" style={{borderTop: "1px solid #2a2b2c"}}>
+                <div className="article-outer">
                     <div className="article-inner">
-                        <div style={{paddingTop:"15px"}}><span style={{textTransform: "uppercase"}}>Dec 1 • 1 Min Read</span></div>
-                        <div style={{fontWeight: "bold"}}>BTN'S 2022 Travel Manager of the Year Award Show Value of NDC</div>
+                        <div className="article-tag"><span>{article.date + ' '}</span> {article.read != "" ? (<span>{' • ' +  article.read}</span>): ('')}</div>
+                        <a className="article-title" href={article.link}><div>{article.title}</div></a>
                     </div>
                 </div>
-            </div>
-            <div className="col-lg-3" style={{color: "#2a2b2c"}}>
-                <div className="article-outer" style={{borderTop: "1px solid #2a2b2c"}}>
-                    <div className="article-inner">
-                        <div style={{paddingTop:"15px"}}><span style={{textTransform: "uppercase"}}>Dec 1 • 1 Min Read</span></div>
-                        <div style={{fontWeight: "bold"}}>BTN'S 2022 Travel Manager of the Year Award Show Value of NDC</div>
-                    </div>
-                </div>
-            </div>
-            <div className="col-lg-3" style={{color: "#2a2b2c"}}>
-                <div className="article-outer" style={{borderTop: "1px solid #2a2b2c"}}>
-                    <div className="article-inner">
-                        <div style={{paddingTop:"15px"}}><span style={{textTransform: "uppercase"}}>Dec 1 • 1 Min Read</span></div>
-                        <div style={{fontWeight: "bold"}}>BTN'S 2022 Travel Manager of the Year Award Show Value of NDC</div>
-                    </div>
-                </div>
-            </div>
-            <div className="col-lg-3" style={{color: "#2a2b2c"}}>
-                <div className="article-outer" style={{borderTop: "1px solid #2a2b2c"}}>
-                    <div className="article-inner">
-                        <div style={{paddingTop:"15px"}}> <span style={{textTransform: "uppercase", paddingLeft:"5px"}}>Dec 1 </span> • <span style={{textTransform: "uppercase", paddingRight: "5px"}}> 1 Min Read</span></div>
-                        <div style={{fontWeight: "bold"}}>BTN'S 2022 Travel Manager of the Year Award Show Value of NDC</div>
-                    </div>
-                </div>
-            </div>
+            </div>))}
         </div>
         </div>
     )

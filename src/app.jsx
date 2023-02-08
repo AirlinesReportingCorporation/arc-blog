@@ -148,8 +148,8 @@ class Blog extends Component {
   render() {
     return (
       <div className="arc-blog-page">
+         <Stickynav title="Articles"></Stickynav>
         <div className="arc-blog-top">
-          <Stickynav title="Articles" />
           {/* Need to add in the ability to change color */}
           <PopularArtcles />
           <BlogJumbo
