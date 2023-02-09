@@ -157,12 +157,7 @@ class Blog extends Component {
         <div className="arc-blog-top">
           {/* Need to add in the ability to change color */}
           <PopularArtcles />
-          <BlogJumbo featuredPosts={this.state.posts}
-            background="https://www2.arccorp.com/globalassets/homepage/redesign/slides/Direct-Connect-blog-header.png"
-            link="https://www2.arccorp.com/articles-trends/the-latest/ARC-Moves-Direct-Connect-NDC-Forward/?utm_source=Jumbo_Blog"
-            title="ARC Moves Direct Connect and NDC Forward"
-            tags={["Connection", "Data"]}
-          />
+          <BlogJumbo featuredPosts={this.state.posts}/>
         </div>
         <div className="container">
           <div className="row blog-nav">
@@ -208,7 +203,7 @@ class Blog extends Component {
                     title={post.title}
                     link={post.link}
                     tags={post.tags}
-                    date={post.date}
+                    date={post.date.substring(0, post.date.indexOf(','))}
                     icon={post.icon}
                   />
                 ))}{" "}

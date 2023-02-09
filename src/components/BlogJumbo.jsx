@@ -8,9 +8,7 @@ class BlogJumbo extends Component {
 
   render() {
     var jumboPost = this.props.featuredPosts.slice(0, 1);
-    console.log(jumboPost);
     var featured = this.props.featuredPosts.slice(1, 3);
-    console.log(featured);
     return (
       <div className="blog-jumbo">
         <div className="row no-gutters jumbo-row">
@@ -47,7 +45,8 @@ class BlogJumbo extends Component {
               {jumboPost.map((jumbo) => (
                 <div className="jumbo-info bg-color-tarmac">
                   <div className="jumbo-metadata">
-                    <span>{jumbo.date}</span>
+                    <span>{jumbo.date.substring(0, jumbo.date.indexOf(','))}</span>
+                    {" • "}
                     <span>1 min read</span>
                   </div>
                   <div
@@ -62,24 +61,17 @@ class BlogJumbo extends Component {
                 </div>
               ))}
               <div className="row featured-row">
+                { featured.map((post)=>(
                 <BlogPost
                   color="white"
                   size="col-lg-6"
-                  image="https://www2.arccorp.com/globalassets/homepage/redesign/latest/book-now-pay-later-options-for-travel-agencies.jpg"
-                  link="https://www2.arccorp.com/articles-trends/the-latest/book-now-pay-later-options-for-travel-agencies/"
-                  title="Travel Agents: Empower Your Customers to Book Now and Pay Laterd"
-                  tags={["Connection", "Distribution"]}
-                  date="Dec 3"
+                  image={"https://www2.arccorp.com/globalassets/homepage/redesign/latest/"+ post.icon +".jpg"}
+                  link={post.link}
+                  title={post.title}
+                  tags={post.tags}
+                  date={post.date.substring(0, post.date.indexOf(','))}
                 />
-                <BlogPost
-                  color="white"
-                  size="col-lg-6"
-                  image="https://www2.arccorp.com/globalassets/homepage/redesign/latest/Attract-More-Visitors-Destination-Gateway.jpg"
-                  link="https://www2.arccorp.com/articles-trends/the-latest/ARC-Moves-Direct-Connect-NDC-Forward/?utm_source=Jumbo_Blog"
-                  title="ARC Moves Direct Connect and NDC Forward"
-                  tags={["Connection", "Data"]}
-                  date="Jan 3"
-                />
+                ))}
               </div>
             </div>
           </div>
