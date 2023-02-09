@@ -161,16 +161,16 @@ class Blog extends Component {
         </div>
         <div className="container">
           <div className="row blog-nav">
-            <div className="nav-col">All</div>
+            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">All</button>
             <div className="nav-col">|</div>
-            <div className="nav-col">Thought Leadership</div>
-            <div className="nav-col">GBTA</div>
-            <div className="nav-col">Data</div>
-            <div className="nav-col">Airlines</div>
-            <div className="nav-col">Agencies</div>
-            <div className="nav-col">Omnichannel</div>
-            <div className="nav-col">NDC</div>
-            <div className="nav-col">Travel Connect</div>
+            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">Thought Leadership</button>
+            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">GBTA</button>
+            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">Data</button>
+            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">Airlines</button>
+            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">Agencies</button>
+            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">Omnichannel</button>
+            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">NDC</button>
+            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">Travel Connect</button>
           </div>
         </div>
         <div className="container blog-posts-header">
@@ -180,7 +180,7 @@ class Blog extends Component {
             </div>
             <div className="col-sm-6">
               <div className="text-right">
-                {/* <Select options={options} onChange={(e) => this.updateFilter(e.value)} placeholder="All Topics" isClearable={false} isSearchable={false}
+                {/* <Select options={options} onClick={(e) => this.updateFilter(e.value)} placeholder="All Topics" isClearable={false} isSearchable={false}
  />
                      <select
                       onChange={(e) => this.updateFilter(e.target.value)}
