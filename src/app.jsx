@@ -13,15 +13,18 @@ const options = [
   { value: "connection", label: "Connection" },
 ];
 
+const arrayMax = 8;
+
 class Blog extends Component {
   constructor() {
     super();
     this.state = {
       posts: [],
-      curIndex: 6,
+      curIndex: arrayMax,
       prevIndex: 0,
       filter: "",
       filteredIndex: 0,
+      jumboIndex: 3,
     };
   }
 
@@ -33,12 +36,13 @@ class Blog extends Component {
     }
   }
 
+
+
   getPosts = (startIndex, endIndex) => {
     var postArray = document.querySelectorAll(
       ".content-block--pageItem__inside"
     );
     let i = startIndex;
-    console.log(i);
     while (i < endIndex) {
       const post = postArray[i];
       var tempPosts = this.state.posts;
@@ -51,14 +55,15 @@ class Blog extends Component {
         date: post.querySelector(".content-block--pageItem__metadata")
           .lastElementChild.innerHTML,
         icon: post.querySelector(".ctaLink").getAttribute("href").split("/")[3],
+        text: post.querySelector(".content-block--pageItem__body").innerText
       });
       i++;
     }
     this.setState({ posts: tempPosts });
-    // We return the next 6 items -- the first time running will be 0 - 5th index
+    // We return the next 8 items -- the first time running will be 0 - 7th index
     console.log("empty, return all");
     // Notes:
-    // We may need to change the show more function to reflect if there is a filter as well otherwise its only showing potentially any within the next 6 indecies.
+    // We may need to change the show more function to reflect if there is a filter as well otherwise its only showing potentially any within the next 8 indecies.
   };
 
   getFilteredPosts = (startIndex) => {
@@ -67,7 +72,7 @@ class Blog extends Component {
     );
     let i = startIndex;
     let tempIndex = 0;
-    while (i < postArray.length && tempIndex < 6) {
+    while (i < postArray.length && tempIndex < arrayMax) {
       const post = postArray[i];
       var tempPosts = this.state.posts;
       if (
@@ -112,7 +117,7 @@ class Blog extends Component {
     if (this.state.filter == "") {
       var tempIndex = this.state.curIndex;
       this.setState(
-        { prevIndex: tempIndex, curIndex: (tempIndex += 6) },
+        { prevIndex: tempIndex, curIndex: (tempIndex += arrayMax) },
         () => {
           this.getPosts(this.state.prevIndex, this.state.curIndex);
         }
@@ -130,7 +135,7 @@ class Blog extends Component {
   updateFilter = (e) => {
     if (e.toLowerCase() == "all topics") {
       this.setState(
-        { filter: "", filteredIndex: 0, posts: [], prevIndex: 0, curIndex: 6 },
+        { filter: "", filteredIndex: 0, posts: [], prevIndex: 0, curIndex: arrayMax },
         () => {
           this.getPosts(this.state.prevIndex, this.state.curIndex);
         }
@@ -152,7 +157,7 @@ class Blog extends Component {
         <div className="arc-blog-top">
           {/* Need to add in the ability to change color */}
           <PopularArtcles />
-          <BlogJumbo
+          <BlogJumbo featuredPosts={this.state.posts}
             background="https://www2.arccorp.com/globalassets/homepage/redesign/slides/Direct-Connect-blog-header.png"
             link="https://www2.arccorp.com/articles-trends/the-latest/ARC-Moves-Direct-Connect-NDC-Forward/?utm_source=Jumbo_Blog"
             title="ARC Moves Direct Connect and NDC Forward"
