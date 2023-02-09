@@ -2,16 +2,7 @@ import React, { Component } from "react";
 import { Stickynav } from "arccorp-vars";
 import BlogJumbo from "./components/BlogJumbo";
 import BlogPost from "./components/BlogPost";
-import Select from "react-select";
 import PopularArtcles from "./components/PopularArticles";
-
-const options = [
-  { value: "all topics", label: "All Topics" },
-  { value: "innovation", label: "Innovation" },
-  { value: "distribution", label: "Distribution" },
-  { value: "data", label: "Data" },
-  { value: "connection", label: "Connection" },
-];
 
 const arrayMax = 8;
 
@@ -24,7 +15,7 @@ class Blog extends Component {
       prevIndex: 0,
       filter: "",
       filteredIndex: 0,
-      jumboIndex: 3,
+      jumboPosts: [],
     };
   }
 
@@ -34,9 +25,51 @@ class Blog extends Component {
     } else {
       this.getFilteredPosts(this.state.filteredIndex);
     }
+
+    let btns = document.querySelectorAll(".filter-choice");
+    console.log(btns);
+    let filterItem = "";
+    // Add the event listener to each filter item
+    btns.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        filterItem = e.target.innerText.toLowerCase();
+        console.log(filterItem)
+        // on click, clear the active button
+        btns.forEach(function(btn) {
+          btn.classList.remove('active-filter')
+        });
+
+        //add the active class to the clicked item
+          e.target.classList.add("active-filter");
+
+          if (filterItem == "all") {
+            this.setState(
+              {
+                filter: "",
+                filteredIndex: 0,
+                posts: [],
+                prevIndex: 0,
+                curIndex: arrayMax,
+              },
+              () => {
+                this.getPosts(this.state.prevIndex, this.state.curIndex);
+              }
+            );
+          } else {
+            this.setState(
+              {
+                filter: filterItem.toLowerCase(),
+                filteredIndex: 0,
+                posts: [],
+              },
+              () => {
+                this.getFilteredPosts(0);
+              }
+            );
+          }
+      });
+    });
   }
-
-
 
   getPosts = (startIndex, endIndex) => {
     var postArray = document.querySelectorAll(
@@ -55,11 +88,12 @@ class Blog extends Component {
         date: post.querySelector(".content-block--pageItem__metadata")
           .lastElementChild.innerHTML,
         icon: post.querySelector(".ctaLink").getAttribute("href").split("/")[3],
-        text: post.querySelector(".content-block--pageItem__body").innerText
+        text: post.querySelector(".content-block--pageItem__body").innerText,
       });
       i++;
     }
     this.setState({ posts: tempPosts });
+    this.setState({ jumboPosts: tempPosts });
     // We return the next 8 items -- the first time running will be 0 - 7th index
     console.log("empty, return all");
     // Notes:
@@ -72,9 +106,15 @@ class Blog extends Component {
     );
     let i = startIndex;
     let tempIndex = 0;
-    while (i < postArray.length && tempIndex < arrayMax) {
+    while (i < postArray.length && tempIndex < 8) {
       const post = postArray[i];
       var tempPosts = this.state.posts;
+      console.log(
+        post
+          .querySelector(".content-block--pageItem__metadata")
+          .firstElementChild.innerText.toLowerCase()
+          .indexOf(this.state.filter)
+      );
       if (
         post
           .querySelector(".content-block--pageItem__metadata")
@@ -132,65 +172,33 @@ class Blog extends Component {
     console.log("click");
   };
 
-  updateFilter = (e) => {
-    if (e.toLowerCase() == "all topics") {
-      this.setState(
-        { filter: "", filteredIndex: 0, posts: [], prevIndex: 0, curIndex: arrayMax },
-        () => {
-          this.getPosts(this.state.prevIndex, this.state.curIndex);
-        }
-      );
-    } else {
-      this.setState(
-        { filter: e.toLowerCase(), filteredIndex: 0, posts: [] },
-        () => {
-          this.getFilteredPosts(0);
-        }
-      );
-    }
-  };
-
   render() {
     return (
       <div className="arc-blog-page">
-         <Stickynav title="Articles"></Stickynav>
+        <Stickynav title="Articles"></Stickynav>
         <div className="arc-blog-top">
           {/* Need to add in the ability to change color */}
           <PopularArtcles />
-          <BlogJumbo featuredPosts={this.state.posts}/>
+          <BlogJumbo featuredPosts={this.state.jumboPosts} />
         </div>
         <div className="container">
           <div className="row blog-nav">
-            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">All</button>
+            <div className="nav-col filter-choice">All</div>
             <div className="nav-col">|</div>
-            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">Thought Leadership</button>
-            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">GBTA</button>
-            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">Data</button>
-            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">Airlines</button>
-            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">Agencies</button>
-            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">Omnichannel</button>
-            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">NDC</button>
-            <button onClick={(e) => this.updateFilter(e.value)} className="nav-col">Travel Connect</button>
+            <div className="nav-col filter-choice">Thought Leadership</div>
+            <div className="nav-col filter-choice">GBTA</div>
+            <div className="nav-col filter-choice">Data</div>
+            <div className="nav-col filter-choice">Airlines</div>
+            <div className="nav-col filter-choice">Agencies</div>
+            <div className="nav-col filter-choice">Omnichannel</div>
+            <div className="nav-col filter-choice">NDC</div>
+            <div className="nav-col filter-choice">Travel Connect</div>
           </div>
         </div>
         <div className="container blog-posts-header">
           <div className="row">
-            <div className="col-lg-12" style={{padding: 0}}>
+            <div className="col-lg-12" style={{ padding: 0 }}>
               <h2 className="text-left">Latest Stories</h2>
-            </div>
-            <div className="col-sm-6">
-              <div className="text-right">
-                {/* <Select options={options} onClick={(e) => this.updateFilter(e.value)} placeholder="All Topics" isClearable={false} isSearchable={false}
- />
-                     <select
-                      onChange={(e) => this.updateFilter(e.target.value)}
-                      id="post-filter"
-                    >
-                      {options.map((option, id) => (
-                        <option className="filter-option" key={id}>{option}</option>
-                      ))}
-                    </select> */}
-              </div>
             </div>
           </div>
         </div>
@@ -203,7 +211,7 @@ class Blog extends Component {
                     title={post.title}
                     link={post.link}
                     tags={post.tags}
-                    date={post.date.substring(0, post.date.indexOf(','))}
+                    date={post.date.substring(0, post.date.indexOf(","))}
                     icon={post.icon}
                   />
                 ))}{" "}

@@ -72,12 +72,11 @@ class BlogPost extends Component {
                 <span className="blog-post-date">{this.props.date}</span>
               </div>
 
-              <a
-                href={"https://www2.arccorp.com" + this.props.link}
+              <div
                 className="blog-title"
               >
                 {this.props.title}
-              </a>
+              </div>
             </div>
           </div>
         </a>
