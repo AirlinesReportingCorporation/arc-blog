@@ -14,30 +14,33 @@ class BlogJumbo extends Component {
         <div className="row no-gutters jumbo-row">
           {jumboPost.map((jumbo) => (
             <div className="col-lg-6">
-              <div className="jumbo-left" style={{
+              <a href={"https://www2.arccorp.com" + jumbo.link}>
+                <div
+                  className="jumbo-left"
+                  style={{
                     backgroundImage:
                       "url(https://www2.arccorp.com/globalassets/homepage/redesign/latest/" +
                       jumbo.icon +
                       ".jpg)",
-                  }}>
-                <div
-                  className="blog-jumbo-image"
+                  }}
                 >
-                  <div className="blog-jumbo-tags">
-                    {jumbo.tags.length > 1 ? (
-                      jumbo.tags.map((tag, index) => {
-                        return (
-                          <span key={index}>
-                            {tag + (index == !jumbo.tags.length ? " • " : "")}
-                          </span>
-                        );
-                      })
-                    ) : (
-                      <span>{jumbo.tags}</span>
-                    )}
+                  <div className="blog-jumbo-image">
+                    <div className="blog-jumbo-tags">
+                      {jumbo.tags.length > 1 ? (
+                        jumbo.tags.map((tag, index) => {
+                          return (
+                            <span key={index}>
+                              {tag + (index == !jumbo.tags.length ? " • " : "")}
+                            </span>
+                          );
+                        })
+                      ) : (
+                        <span>{jumbo.tags}</span>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
           ))}
           <div className="col-lg-6">
@@ -45,7 +48,9 @@ class BlogJumbo extends Component {
               {jumboPost.map((jumbo) => (
                 <div className="jumbo-info bg-color-tarmac">
                   <div className="jumbo-metadata">
-                    <span>{jumbo.date.substring(0, jumbo.date.indexOf(','))}</span>
+                    <span>
+                      {jumbo.date.substring(0, jumbo.date.indexOf(","))}
+                    </span>
                     {" • "}
                     <span>1 min read</span>
                   </div>
@@ -55,22 +60,28 @@ class BlogJumbo extends Component {
                       color: this.props.color ? this.props.color : "white",
                     }}
                   >
-                    <a href={jumbo.link}>{jumbo.title}</a>
+                    <a href={"https://www2.arccorp.com" + jumbo.link}>
+                      {jumbo.title}
+                    </a>
                   </div>
                   <div className="jumbo-text">{jumbo.text}</div>
                 </div>
               ))}
               <div className="row featured-row">
-                { featured.map((post)=>(
-                <BlogPost
-                  color="white"
-                  size="col-lg-6"
-                  image={"https://www2.arccorp.com/globalassets/homepage/redesign/latest/"+ post.icon +".jpg"}
-                  link={post.link}
-                  title={post.title}
-                  tags={post.tags}
-                  date={post.date.substring(0, post.date.indexOf(','))}
-                />
+                {featured.map((post) => (
+                  <BlogPost
+                    color="white"
+                    size="col-lg-6"
+                    image={
+                      "https://www2.arccorp.com/globalassets/homepage/redesign/latest/" +
+                      post.icon +
+                      ".jpg"
+                    }
+                    link={post.link}
+                    title={post.title}
+                    tags={post.tags}
+                    date={post.date.substring(0, post.date.indexOf(","))}
+                  />
                 ))}
               </div>
             </div>
