@@ -23,8 +23,9 @@
 
 .active-filter{
   color: main.$arc-teal;
-  border: 1px solid main.$arc-teal;
+  border: 2px solid main.$arc-teal;
   border-radius: 10px;
+  font-family: main.$arc-font-bold;
 }
 
 .blog-nav {
@@ -32,7 +33,7 @@
   max-width: 780px;
   justify-content: space-between;
   margin: 20px auto;
-  font-family: SourceSansPro-SemiBold, Arial, Helvetica, sans-serif;
+  font-family: main.$arc-font-bold;
 
   .nav-col {
     text-transform: uppercase;

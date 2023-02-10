@@ -16,6 +16,7 @@ class Blog extends Component {
       filter: "",
       filteredIndex: 0,
       jumboPosts: [],
+      tempIndexHolder: 0,
     };
   }
 
@@ -27,46 +28,45 @@ class Blog extends Component {
     }
 
     let btns = document.querySelectorAll(".filter-choice");
-    console.log(btns);
     let filterItem = "";
     // Add the event listener to each filter item
     btns.forEach((item) => {
       item.addEventListener("click", (e) => {
         filterItem = e.target.innerText.toLowerCase();
-        console.log(filterItem)
         // on click, clear the active button
-        btns.forEach(function(btn) {
-          btn.classList.remove('active-filter')
+        btns.forEach(function (btn) {
+          btn.classList.remove("active-filter");
         });
 
         //add the active class to the clicked item
-          e.target.classList.add("active-filter");
+        e.target.classList.add("active-filter");
+        console.log(filterItem)
 
-          if (filterItem == "all") {
-            this.setState(
-              {
-                filter: "",
-                filteredIndex: 0,
-                posts: [],
-                prevIndex: 0,
-                curIndex: arrayMax,
-              },
-              () => {
-                this.getPosts(this.state.prevIndex, this.state.curIndex);
-              }
-            );
-          } else {
-            this.setState(
-              {
-                filter: filterItem.toLowerCase(),
-                filteredIndex: 0,
-                posts: [],
-              },
-              () => {
-                this.getFilteredPosts(0);
-              }
-            );
-          }
+        if (filterItem == "all") {
+          this.setState(
+            {
+              filter: "",
+              filteredIndex: 0,
+              posts: [],
+              prevIndex: 0,
+              curIndex: arrayMax,
+            },
+            () => {
+              this.getPosts(this.state.prevIndex, this.state.curIndex);
+            }
+          );
+        } else {
+          this.setState(
+            {
+              filter: filterItem.toLowerCase(),
+              filteredIndex: 0,
+              posts: [],
+            },
+            () => {
+              this.getFilteredPosts(0);
+            }
+          );
+        }
       });
     });
   }
@@ -94,27 +94,25 @@ class Blog extends Component {
     }
     this.setState({ posts: tempPosts });
     this.setState({ jumboPosts: tempPosts });
-    // We return the next 8 items -- the first time running will be 0 - 7th index
-    console.log("empty, return all");
     // Notes:
     // We may need to change the show more function to reflect if there is a filter as well otherwise its only showing potentially any within the next 8 indecies.
   };
 
   getFilteredPosts = (startIndex) => {
+    // Get the list of blog posts
     var postArray = document.querySelectorAll(
       ".content-block--pageItem__inside"
     );
+    // Set the index to the starting index given, and reset temp index to 0;
     let i = startIndex;
     let tempIndex = 0;
-    while (i < postArray.length && tempIndex < 8) {
+    // As long as the index is not at the end of the posts array and temp index hasn't reached 8
+    while (i < postArray.length && tempIndex < arrayMax) {
+      // set post to the current post
       const post = postArray[i];
+      // make a copy of the posts array
       var tempPosts = this.state.posts;
-      console.log(
-        post
-          .querySelector(".content-block--pageItem__metadata")
-          .firstElementChild.innerText.toLowerCase()
-          .indexOf(this.state.filter)
-      );
+      // If the post has the filter push it
       if (
         post
           .querySelector(".content-block--pageItem__metadata")
@@ -134,26 +132,27 @@ class Blog extends Component {
             .getAttribute("href")
             .split("/")[3],
         });
-        console.log(tempPosts);
+        // Update the index and the temp index
         tempIndex++;
         i++;
-        // maybe can use tempindex to create an alternative show more?
-        console.log("Temp Index" + tempIndex);
-        console.log("while index" + i);
       } else {
+        // Otherwise, just go to the next index
         i++;
-        console.log("Temp Index" + tempIndex);
-        console.log("while index" + i);
       }
+      // keeping track of the most recent post checked
       this.setState({ filteredIndex: i });
     }
+    // set the posts array to the newly filtered posts array
     this.setState({ posts: tempPosts });
-    // if it is then push that post to the array and increment the num of posts until we have 6
-    // otherwise keep going through the array until we get 6 more.
-    console.log("There is a filter: " + this.state.filter);
+      let showMore = document.querySelector(".blog-ctaBtn");
+      if ((this.state.posts.length % 8) != 0) {
+        showMore.style.display = "none";
+      }
   };
 
   showMore = () => {
+    console.log(this.state.filter);
+    // If there isn't a filter
     if (this.state.filter == "") {
       var tempIndex = this.state.curIndex;
       this.setState(
@@ -163,13 +162,12 @@ class Blog extends Component {
         }
       );
       console.log("show more with no filter");
-    } else {
-      console.log(this.state.filteredIndex + "from show more");
+    }
+     else {
+      // make a copy of the last filtered index and give it as a starting point for getting more filtered posts
       var tempIndex = this.state.filteredIndex;
-      console.log(tempIndex + "from show more");
       this.getFilteredPosts(tempIndex);
     }
-    console.log("click");
   };
 
   render() {
