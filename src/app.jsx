@@ -185,14 +185,14 @@ class Blog extends Component {
           <div className="row blog-nav">
             <div className="nav-col filter-choice">All</div>
             <div className="nav-col">|</div>
-            <div className="nav-col filter-choice">Thought Leadership</div>
-            <div className="nav-col filter-choice">GBTA</div>
+            <div className="nav-col">Thought Leadership</div>
+            <div className="nav-col">GBTA</div>
             <div className="nav-col filter-choice">Data</div>
-            <div className="nav-col filter-choice">Airlines</div>
-            <div className="nav-col filter-choice">Agencies</div>
+            <div className="nav-col">Airlines</div>
+            <div className="nav-col">Agencies</div>
             <div className="nav-col filter-choice">Omnichannel</div>
             <div className="nav-col filter-choice">NDC</div>
-            <div className="nav-col filter-choice">Travel Connect</div>
+            <div className="nav-col">Travel Connect</div>
           </div>
         </div>
         <div className="container blog-posts-header">
