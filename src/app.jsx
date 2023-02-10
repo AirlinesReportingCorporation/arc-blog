@@ -6,6 +6,7 @@ import PopularArtcles from "./components/PopularArticles";
 
 const arrayMax = 8;
 
+var stuff = ["All", "Distribution", 3, 4, 5];
 class Blog extends Component {
   constructor() {
     super();
@@ -17,6 +18,7 @@ class Blog extends Component {
       filteredIndex: 0,
       jumboPosts: [],
       tempIndexHolder: 0,
+      showViewMore: false,
     };
   }
 
@@ -26,49 +28,6 @@ class Blog extends Component {
     } else {
       this.getFilteredPosts(this.state.filteredIndex);
     }
-
-    let btns = document.querySelectorAll(".filter-choice");
-    let filterItem = "";
-    // Add the event listener to each filter item
-    btns.forEach((item) => {
-      item.addEventListener("click", (e) => {
-        filterItem = e.target.innerText.toLowerCase();
-        // on click, clear the active button
-        btns.forEach(function (btn) {
-          btn.classList.remove("active-filter");
-        });
-
-        //add the active class to the clicked item
-        e.target.classList.add("active-filter");
-        console.log(filterItem)
-
-        if (filterItem == "all") {
-          this.setState(
-            {
-              filter: "",
-              filteredIndex: 0,
-              posts: [],
-              prevIndex: 0,
-              curIndex: arrayMax,
-            },
-            () => {
-              this.getPosts(this.state.prevIndex, this.state.curIndex);
-            }
-          );
-        } else {
-          this.setState(
-            {
-              filter: filterItem.toLowerCase(),
-              filteredIndex: 0,
-              posts: [],
-            },
-            () => {
-              this.getFilteredPosts(0);
-            }
-          );
-        }
-      });
-    });
   }
 
   getPosts = (startIndex, endIndex) => {
@@ -87,11 +46,22 @@ class Blog extends Component {
           .firstElementChild.innerHTML.split(","),
         date: post.querySelector(".content-block--pageItem__metadata")
           .lastElementChild.innerHTML,
-        icon: post.querySelector(".ctaLink").getAttribute("href").split("/")[3],
+        icon: post
+          .querySelector(".ctaLink")
+          .getAttribute("href")
+          .split("/")[3],
         text: post.querySelector(".content-block--pageItem__body").innerText,
       });
       i++;
     }
+    console.log(i == postArray.length);
+    // check if done looping full post array, set condition
+    if (i == postArray.length) {
+      this.setState({ showViewMore: false });
+    } else {
+      this.setState({ showViewMore: true });
+    }
+
     this.setState({ posts: tempPosts });
     this.setState({ jumboPosts: tempPosts });
     // Notes:
@@ -103,6 +73,7 @@ class Blog extends Component {
     var postArray = document.querySelectorAll(
       ".content-block--pageItem__inside"
     );
+    console.log(postArray);
     // Set the index to the starting index given, and reset temp index to 0;
     let i = startIndex;
     let tempIndex = 0;
@@ -142,12 +113,16 @@ class Blog extends Component {
       // keeping track of the most recent post checked
       this.setState({ filteredIndex: i });
     }
+
+    // check if done looping full post array, set condition
+    if (i == postArray.length) {
+      this.setState({ showViewMore: false });
+    } else {
+      this.setState({ showViewMore: true });
+    }
+
     // set the posts array to the newly filtered posts array
     this.setState({ posts: tempPosts });
-      let showMore = document.querySelector(".blog-ctaBtn");
-      if ((this.state.posts.length % 8) != 0) {
-        showMore.style.display = "none";
-      }
   };
 
   showMore = () => {
@@ -162,13 +137,20 @@ class Blog extends Component {
         }
       );
       console.log("show more with no filter");
-    }
-     else {
+    } else {
       // make a copy of the last filtered index and give it as a starting point for getting more filtered posts
       var tempIndex = this.state.filteredIndex;
       this.getFilteredPosts(tempIndex);
     }
   };
+
+  setFilter(val) {
+    this.setState({ filteredIndex: 0, posts: [] }, () => {
+      this.setState({ filter: val.toLowerCase() }, () =>
+        this.getFilteredPosts(0)
+      );
+    });
+  }
 
   render() {
     return (
@@ -181,15 +163,30 @@ class Blog extends Component {
         </div>
         <div className="container">
           <div className="row blog-nav">
-            <div className="nav-col filter-choice">All</div>
+            <div
+              className="nav-col filter-choice"
+              onClick={this.setFilter.bind(this, "")}
+            >
+              All
+            </div>
             <div className="nav-col">|</div>
             <div className="nav-col">Thought Leadership</div>
             <div className="nav-col">GBTA</div>
             <div className="nav-col filter-choice">Data</div>
-            <div className="nav-col">Airlines</div>
+            <div
+              className="nav-col"
+              onClick={this.setFilter.bind(this, "Airlines")}
+            >
+              Airlines
+            </div>
             <div className="nav-col">Agencies</div>
             <div className="nav-col filter-choice">Omnichannel</div>
-            <div className="nav-col filter-choice">NDC</div>
+            <div
+              className={this.state.filter == "ndc" ? "nav-col filter-choice active-filter" : "nav-col filter-choice"}
+              onClick={this.setFilter.bind(this, "NDC")}
+            >
+              NDC
+            </div>
             <div className="nav-col">Travel Connect</div>
           </div>
         </div>
@@ -216,7 +213,11 @@ class Blog extends Component {
               </div>
             </div>
             <div className="text-center blog-ctaBtn">
-              <a onClick={this.showMore} className="ctaBtn">
+              <a
+                onClick={this.showMore}
+                style={{ display: this.state.showViewMore ? "block" : "none" }}
+                className="ctaBtn"
+              >
                 View More
               </a>
             </div>
