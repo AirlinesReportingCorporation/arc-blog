@@ -164,7 +164,7 @@ class Blog extends Component {
         <div className="container">
           <div className="row blog-nav">
             <div
-              className="nav-col filter-choice"
+              className={this.state.filter == "" ? "nav-col filter-choice active-filter" : "nav-col filter-choice"}
               onClick={this.setFilter.bind(this, "")}
             >
               All
@@ -172,7 +172,8 @@ class Blog extends Component {
             <div className="nav-col">|</div>
             <div className="nav-col">Thought Leadership</div>
             <div className="nav-col">GBTA</div>
-            <div className="nav-col filter-choice">Data</div>
+            <div className={this.state.filter == "data" ? "nav-col filter-choice active-filter" : "nav-col filter-choice"}
+              onClick={this.setFilter.bind(this, "Data")}>Data</div>
             <div
               className="nav-col"
               onClick={this.setFilter.bind(this, "Airlines")}
@@ -180,7 +181,8 @@ class Blog extends Component {
               Airlines
             </div>
             <div className="nav-col">Agencies</div>
-            <div className="nav-col filter-choice">Omnichannel</div>
+            <div className={this.state.filter == "omnichannel" ? "nav-col filter-choice active-filter" : "nav-col filter-choice"}
+              onClick={this.setFilter.bind(this, "Omnichannel")}>Omnichannel</div>
             <div
               className={this.state.filter == "ndc" ? "nav-col filter-choice active-filter" : "nav-col filter-choice"}
               onClick={this.setFilter.bind(this, "NDC")}
@@ -193,7 +195,7 @@ class Blog extends Component {
         <div className="container blog-posts-header">
           <div className="row">
             <div className="col-lg-12" style={{ padding: 0 }}>
-              <h2 className="text-left">Latest Stories</h2>
+              <h2 className="text-left blog-latest">Latest Stories</h2>
             </div>
           </div>
         </div>
@@ -215,7 +217,7 @@ class Blog extends Component {
             <div className="text-center blog-ctaBtn">
               <a
                 onClick={this.showMore}
-                style={{ display: this.state.showViewMore ? "block" : "none" }}
+                style={{ display: this.state.showViewMore ? "inline-block" : "none", width: "220px" }}
                 className="ctaBtn"
               >
                 View More

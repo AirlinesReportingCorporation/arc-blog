@@ -1,13 +1,13 @@
 @use "~arccorp-vars/src/scss/main.scss";
 
 .blog-post {
-    margin-bottom: 30px;
-    position: relative;
-    border-radius: 10px;
-    max-width: 275px;
-    width: 100%;
-    height: 100%;
-    max-height: 400px;
+  margin-bottom: 30px;
+  position: relative;
+  border-radius: 10px;
+  max-width: 275px;
+  width: 100%;
+  height: 100%;
+  max-height: 400px;
 }
 
 .post-top {
@@ -21,31 +21,30 @@
 }
 
 .blog-post-tags {
-    display: inline-block;
-    color: main.$white;
-    text-transform: uppercase;
-    font-family: SourceSansPro-Bold, SourceSansPro-Regular, helvetica, arial,
-      sans-serif;
-    font-size: 12px;
-    line-height: 1rem;
-    padding-left: 20px;
-    margin: 10px 10px 10px 0;
-  }
+  display: inline-block;
+  color: main.$white;
+  text-transform: uppercase;
+  font-family: main.$arc-font-bold;
+  font-size: 12px;
+  line-height: 1rem;
+  padding-left: 20px;
+  margin: 10px 10px 10px 0;
+}
 
-  .blog-post-date {
-    color: #6d6e71;
-    font-size: 12px;
-  }
+.blog-post-date {
+  color: main.$fuselage;
+  font-size: 12px;
+  padding-bottom: 10px;
+}
 
 div.blog-title {
-  font-size: 16px;
-  line-height: 16px;
-  color: #414042;
-  font-family: SourceSansPro-Bold, helvetica, arial, sans-serif;
+  font-size: 18px;
+  color: main.$tarmac;
+  font-family: main.$arc-font-bold;
 }
 
 div.blog-title:hover {
-    color: main.$arc-teal;
+  color: main.$arc-teal;
 }
 
 .blog-post-icon {
@@ -57,4 +56,18 @@ div.blog-title:hover {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   box-shadow: inset 0 0 0 2000px rgba(42, 43, 44, 0.4);
+}
+
+@media (max-width: 390px) {
+  .blog-columns {
+    margin-bottom: 15px;
+  }
+  
+  .blog-post-icon, .post-top {
+    display: none;
+  }
+  .post-bottom {
+    min-height: 30px;
+    padding: 15px 20px 15px;
+  }
 }

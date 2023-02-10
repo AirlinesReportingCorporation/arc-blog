@@ -37,7 +37,7 @@ class BlogPost extends Component {
       : (imageUrl = "");
     return (
       <div
-        className={this.props.size ? this.props.size : "col-lg-3 blog-columns"}
+        className={this.props.size ? this.props.size : "col-xs-6 col-sm-4 col-lg-3 blog-columns"}
       >
         <a href={"https://www2.arccorp.com" + this.props.link}>
           <div

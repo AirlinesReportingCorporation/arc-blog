@@ -43,7 +43,7 @@ class BlogJumbo extends Component {
               </a>
             </div>
           ))}
-          <div className="col-lg-6">
+          <div className="col-sm-12 col-lg-6">
             <div className="jumbo-right">
               {jumboPost.map((jumbo) => (
                 <div className="jumbo-info bg-color-tarmac">
@@ -71,7 +71,7 @@ class BlogJumbo extends Component {
                 {featured.map((post) => (
                   <BlogPost
                     color="white"
-                    size="col-lg-6"
+                    size="col-xs-6 col-sm-6"
                     image={
                       "https://www2.arccorp.com/globalassets/homepage/redesign/latest/" +
                       post.icon +
