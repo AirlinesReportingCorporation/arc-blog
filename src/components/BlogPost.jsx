@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import { Component } from "react";
+import { motion } from "framer-motion";
+
 
 function imageExists(image_url) {
   var http = new XMLHttpRequest();
@@ -44,17 +46,11 @@ class BlogPost extends Component {
             className="blog-post"
             style={{
               backgroundColor: this.props.color ? this.props.color : "#f7f5f6",
+              overflow: "hidden"
             }}
           >
             <div className="post-top">
-              <div
-                className="blog-post-icon"
-                style={{
-                  backgroundImage: "url(" + imageUrl + ")",
-                  height: "275px",
-                }}
-              >
-                <div className="blog-post-tags">
+              <div className="blog-post-tags">
                   {this.props.tags.length > 1 ? (
                     this.props.tags.map((tag, index) => {
                       return (
@@ -65,7 +61,15 @@ class BlogPost extends Component {
                     <span>{this.props.tags}</span>
                   )}
                 </div>
-              </div>
+              <motion.div
+               whileHover={{ scale: 1.2 }}
+                className="blog-post-icon"
+                style={{
+                  backgroundImage: "url(" + imageUrl + ")",
+                  height: "275px",
+                }}
+              >
+              </motion.div>
             </div>
             <div className="post-bottom">
               <div className="blog-post-data">

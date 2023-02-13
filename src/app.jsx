@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { Stickynav } from "arccorp-vars";
 import BlogJumbo from "./components/BlogJumbo";
 import BlogPost from "./components/BlogPost";

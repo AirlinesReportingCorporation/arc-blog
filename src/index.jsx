@@ -1,9 +1,8 @@
 require('file-loader?name=[name].[ext]!./index.html');
-import React from 'react';
 import ReactDOM from 'react-dom';
 import Blog from './app';
 import "./scss/main.scss";
 
-var mountNode = document.getElementById('app');
+const root = ReactDOM.createRoot(document.getElementById('app'))
 
-ReactDOM.render(<Blog/>, mountNode); 
+root.render(<Blog />); 

@@ -66,6 +66,8 @@ module.exports = {
       new MiniCssExtractPlugin({
           filename: "[name].min.css"
       }),
-
+      new webpack.ProvidePlugin({
+        "React": "react"
+      }),
   ].filter(Boolean),
 };
