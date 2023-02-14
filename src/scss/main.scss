@@ -92,16 +92,16 @@ h2.blog-latest {
   }
 }
 
-@media (min-width: 575px) {
+@media (min-width: 576px) {
   .arc-sticky-container {
     display: block;
   }
   .arc-sticky-title, a.arc-sticky-title {
     padding-left: 15px;
   }
-  a.arc-sticky-link-right {
-    padding-right: 15px;
-  }
+  // a.arc-sticky-link-right {
+  //   padding-right: 15px;
+  // }
   .blog-posts-header .row {
     h2 {
       text-align: left;
@@ -109,7 +109,7 @@ h2.blog-latest {
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 576px) {
   .arc-sticky-container {
     display: block;
   }

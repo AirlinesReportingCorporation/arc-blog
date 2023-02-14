@@ -88,3 +88,10 @@
     color: inherit;
   }
 } 
+
+@media (max-width: 576px) {
+  .featured-row {
+    padding: unset;
+    top: 60%;
+  }
+}
