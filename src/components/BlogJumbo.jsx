@@ -71,7 +71,7 @@ class BlogJumbo extends Component {
                 {featured.map((post) => (
                   <BlogPost
                     color="white"
-                    size="col-xs-6 col-sm-6"
+                    size="col-xs-12 col-sm-6"
                     image={
                       "https://www2.arccorp.com/globalassets/homepage/redesign/latest/" +
                       post.icon +
