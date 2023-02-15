@@ -31,7 +31,7 @@
 .blog-nav {
   color: main.$tarmac;
   max-width: 780px;
-  justify-content: space-between;
+  justify-content: center;
   margin: 20px auto;
   font-family: main.$arc-font-bold;
 
@@ -92,7 +92,7 @@ h2.blog-latest {
   }
 }
 
-@media (min-width: 575px) {
+@media (min-width: 576px) {
   .arc-sticky-container {
     display: block;
   }
@@ -101,6 +101,9 @@ h2.blog-latest {
   }
   a.arc-sticky-link-right {
     padding-right: 15px;
+    &:hover {
+      padding-left: 15px;
+    }
   }
   .blog-posts-header .row {
     h2 {
@@ -109,7 +112,7 @@ h2.blog-latest {
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 576px) {
   .arc-sticky-container {
     display: block;
   }
@@ -118,5 +121,10 @@ h2.blog-latest {
   }
   a.arc-sticky-link-right {
     padding-right: 15px;
+
+    &:hover {
+      padding-right: 15px;
+    }
   }
+  
 }

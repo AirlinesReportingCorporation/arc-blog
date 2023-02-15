@@ -46,10 +46,7 @@ class Blog extends Component {
           .firstElementChild.innerHTML.split(","),
         date: post.querySelector(".content-block--pageItem__metadata")
           .lastElementChild.innerHTML,
-        icon: post
-          .querySelector(".ctaLink")
-          .getAttribute("href")
-          .split("/")[3],
+        icon: post.querySelector(".ctaLink").getAttribute("href").split("/")[3],
         text: post.querySelector(".content-block--pageItem__body").innerText,
       });
       i++;
@@ -163,33 +160,65 @@ class Blog extends Component {
         </div>
         <div className="container">
           <div className="row blog-nav">
-            <div
-              className={this.state.filter == "" ? "nav-col filter-choice active-filter" : "nav-col filter-choice"}
-              onClick={this.setFilter.bind(this, "")}
-            >
-              All
+            <div className="col-auto">
+              <div className="row">
+                <div
+                  className={
+                    this.state.filter == ""
+                      ? "col-auto nav-col filter-choice active-filter"
+                      : "col-auto nav-col filter-choice"
+                  }
+                  onClick={this.setFilter.bind(this, "")}
+                >
+                  All
+                </div>
+                <div className="col-auto nav-col">|</div>
+              </div>
             </div>
-            <div className="nav-col">|</div>
-            <div className="nav-col">Thought Leadership</div>
-            <div className="nav-col">GBTA</div>
-            <div className={this.state.filter == "data" ? "nav-col filter-choice active-filter" : "nav-col filter-choice"}
-              onClick={this.setFilter.bind(this, "Data")}>Data</div>
-            <div
-              className="nav-col"
-              onClick={this.setFilter.bind(this, "Airlines")}
-            >
-              Airlines
+            <div className="col-lg-10">
+              <div className="row">
+                <div className="col-auto nav-col">Thought Leadership</div>
+                <div className="col-auto nav-col">GBTA</div>
+                <div
+                  className={
+                    this.state.filter == "data"
+                      ? "col-auto nav-col filter-choice active-filter"
+                      : "col-auto nav-col filter-choice"
+                  }
+                  onClick={this.setFilter.bind(this, "Data")}
+                >
+                  Data
+                </div>
+                <div
+                  className="col-auto nav-col"
+                  onClick={this.setFilter.bind(this, "Airlines")}
+                >
+                  Airlines
+                </div>
+                <div className="col-auto nav-col">Agencies</div>
+                <div
+                  className={
+                    this.state.filter == "omnichannel"
+                      ? "col-auto nav-col filter-choice active-filter"
+                      : "col-auto nav-col filter-choice"
+                  }
+                  onClick={this.setFilter.bind(this, "Omnichannel")}
+                >
+                  Omnichannel
+                </div>
+                <div
+                  className={
+                    this.state.filter == "ndc"
+                      ? "col-auto nav-col filter-choice active-filter"
+                      : "col-auto nav-col filter-choice"
+                  }
+                  onClick={this.setFilter.bind(this, "NDC")}
+                >
+                  NDC
+                </div>
+                <div className="col-auto nav-col">Travel Connect</div>
+              </div>
             </div>
-            <div className="nav-col">Agencies</div>
-            <div className={this.state.filter == "omnichannel" ? "nav-col filter-choice active-filter" : "nav-col filter-choice"}
-              onClick={this.setFilter.bind(this, "Omnichannel")}>Omnichannel</div>
-            <div
-              className={this.state.filter == "ndc" ? "nav-col filter-choice active-filter" : "nav-col filter-choice"}
-              onClick={this.setFilter.bind(this, "NDC")}
-            >
-              NDC
-            </div>
-            <div className="nav-col">Travel Connect</div>
           </div>
         </div>
         <div className="container blog-posts-header">
@@ -217,7 +246,10 @@ class Blog extends Component {
             <div className="text-center blog-ctaBtn">
               <a
                 onClick={this.showMore}
-                style={{ display: this.state.showViewMore ? "inline-block" : "none", width: "220px" }}
+                style={{
+                  display: this.state.showViewMore ? "inline-block" : "none",
+                  width: "220px",
+                }}
                 className="ctaBtn"
               >
                 View More

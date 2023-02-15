@@ -88,3 +88,15 @@
     color: inherit;
   }
 } 
+
+@media (max-width: 1103px) {
+  .featured-row {
+    padding: unset;
+    top: 60%;
+  }
+
+  .blog-jumbo {
+    padding-bottom: 130px;
+  }
+
+}

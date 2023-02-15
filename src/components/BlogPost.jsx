@@ -39,7 +39,11 @@ class BlogPost extends Component {
       : (imageUrl = "");
     return (
       <div
-        className={this.props.size ? this.props.size : "col-xs-6 col-sm-4 col-lg-3 blog-columns"}
+        className = {
+          this.props.size
+            ? this.props.size
+            : "col-xs-12 col-sm-6 col-md-4 col-xl-3 blog-columns"
+        }
       >
         <a href={"https://www2.arccorp.com" + this.props.link}>
           <div
@@ -72,14 +76,11 @@ class BlogPost extends Component {
               </motion.div>
             </div>
             <div className="post-bottom">
-              <div className="blog-post-data">
-                <span className="blog-post-date">{this.props.date}</span>
-              </div>
-
-              <div
-                className="blog-title"
-              >
-                {this.props.title}
+              <div className="post-bottom-inner">
+                <div className="blog-post-data">
+                  <span className="blog-post-date">{this.props.date}</span>
+                </div>
+                <div className="blog-title">{this.props.title}</div>
               </div>
             </div>
           </div>
