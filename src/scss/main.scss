@@ -101,6 +101,9 @@ h2.blog-latest {
   }
   // a.arc-sticky-link-right {
   //   padding-right: 15px;
+  //   &:hover {
+  //     padding-left: 15px;
+  //   }
   // }
   .blog-posts-header .row {
     h2 {
@@ -118,5 +121,10 @@ h2.blog-latest {
   }
   a.arc-sticky-link-right {
     padding-right: 15px;
+
+    &:hover {
+      padding-right: 15px;
+    }
   }
+  
 }
