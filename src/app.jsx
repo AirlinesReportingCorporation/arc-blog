@@ -242,40 +242,38 @@ class Blog extends Component {
             </div>
           </div>
         </div>
-        <div className="container blog-posts-header">
+        <div className="blog-container blog-posts-header">
           <div className="row">
-            <div className="col-lg-12" style={{ padding: 0 }}>
+            <div className="col-lg-12">
               <h2 className="text-left blog-latest">Latest Stories</h2>
             </div>
           </div>
         </div>
         <div className="blog-posts">
-          <div className="container" style={{ maxWidth: "1200px" }}>
-            <div className="container" style={{ maxWidth: "1280px" }}>
-              <div className="row">
-                {this.state.posts.map((post) => (
-                  <BlogPost
-                    title={post.title}
-                    link={post.link}
-                    tags={post.tags}
-                    date={post.date.substring(0, post.date.indexOf(","))}
-                    icon={post.icon}
-                  />
-                ))}
-              </div>
+          <div className="blog-container">
+            <div className="row">
+              {this.state.posts.map((post) => (
+                <BlogPost
+                  title={post.title}
+                  link={post.link}
+                  tags={post.tags}
+                  date={post.date.substring(0, post.date.indexOf(","))}
+                  icon={post.icon}
+                />
+              ))}
             </div>
-            <div className="text-center blog-ctaBtn">
-              <a
-                onClick={this.showMore}
-                style={{
-                  display: this.state.showViewMore ? "inline-block" : "none",
-                  width: "220px",
-                }}
-                className="ctaBtn"
-              >
-                View More
-              </a>
-            </div>
+          </div>
+          <div className="text-center blog-ctaBtn">
+            <a
+              onClick={this.showMore}
+              style={{
+                display: this.state.showViewMore ? "inline-block" : "none",
+                width: "220px",
+              }}
+              className="ctaBtn blog-viewMore"
+            >
+              View More
+            </a>
           </div>
         </div>
       </div>

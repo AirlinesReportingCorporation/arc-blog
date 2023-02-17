@@ -1,7 +1,7 @@
 @use "~arccorp-vars/src/scss/main.scss";
 
 .blog-post {
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   position: relative;
   border-radius: 10px;
   width: 270px;
@@ -24,7 +24,7 @@
   font-family: main.$arc-font-bold;
   font-size: 12px;
   line-height: 1rem;
-  margin: 10px 10px 10px 20px;
+  margin: 15px 10px 10px 20px;
 }
 
 .blog-post-icon {

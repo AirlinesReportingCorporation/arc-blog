@@ -50,7 +50,6 @@
 }
 
 h2.blog-latest {
-  padding-top: 30px;
   font: main.$arc-font-regular;
   color: main.$black;
   font-size: 36px;
@@ -62,15 +61,16 @@ h2.blog-latest {
   border-bottom: 1px solid main.$landing;
 }
 
-.blog-posts-header .row {
+.blog-latest {
+  max-width: inherit;
   align-items: center;
-  padding-top: 20px;
-  margin-bottom: 60px;
+  padding-top: 30px;
+  margin-bottom: 30px;
   border-top: 1px solid main.$landing;
 }
 
-.blog-ctaBtn {
-  margin-bottom: 60px;
+.blog-viewMore {
+ margin: 0 auto 90px;
 }
 
 .page-grid {
