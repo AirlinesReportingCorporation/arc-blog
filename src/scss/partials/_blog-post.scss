@@ -64,7 +64,25 @@ div.blog-title:hover {
   color: main.$arc-teal;
 }
 
+@media (min-width: 576px) {  
+  .blog-posts-header .row {
+    h2 {
+      text-align: left;
+    }
+  }
+}
+
 @media (max-width: 576px) {
+  .blog-posts-header .row {
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .blog-post-icon {
+      display: none;
+  }
+
   .blog-columns {
     margin-bottom: 15px;
   }

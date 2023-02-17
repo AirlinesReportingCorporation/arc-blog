@@ -65,25 +65,27 @@ class BlogJumbo extends Component {
                     </a>
                   </div>
                   <div className="jumbo-text">{jumbo.text}</div>
+                  <div className="featured-row">
+                    <div className="row">
+                      {featured.map((post) => (
+                        <BlogPost
+                          color="white"
+                          size="col-xs-12 col-sm-6"
+                          image={
+                            "https://www2.arccorp.com/globalassets/homepage/redesign/latest/" +
+                            post.icon +
+                            ".jpg"
+                          }
+                          link={post.link}
+                          title={post.title}
+                          tags={post.tags}
+                          date={post.date.substring(0, post.date.indexOf(","))}
+                        />
+                      ))}
+                    </div>
+                  </div>
                 </div>
               ))}
-              <div className="row featured-row">
-                {featured.map((post) => (
-                  <BlogPost
-                    color="white"
-                    size="col-xs-12 col-sm-6"
-                    image={
-                      "https://www2.arccorp.com/globalassets/homepage/redesign/latest/" +
-                      post.icon +
-                      ".jpg"
-                    }
-                    link={post.link}
-                    title={post.title}
-                    tags={post.tags}
-                    date={post.date.substring(0, post.date.indexOf(","))}
-                  />
-                ))}
-              </div>
             </div>
           </div>
         </div>

@@ -240,7 +240,7 @@ class Blog extends Component {
                     date={post.date.substring(0, post.date.indexOf(","))}
                     icon={post.icon}
                   />
-                ))}{" "}
+                ))}
               </div>
             </div>
             <div className="text-center blog-ctaBtn">
