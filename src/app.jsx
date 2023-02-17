@@ -154,69 +154,90 @@ class Blog extends Component {
       <div className="arc-blog-page">
         <Stickynav title="Articles"></Stickynav>
         <div className="arc-blog-top">
-          {/* Need to add in the ability to change color */}
           <PopularArtcles />
           <BlogJumbo featuredPosts={this.state.jumboPosts} />
         </div>
-        <div className="container">
-          <div className="row blog-nav">
-            <div className="col-auto">
-              <div className="row">
-                <div
-                  className={
-                    this.state.filter == ""
-                      ? "col-auto nav-col filter-choice active-filter"
-                      : "col-auto nav-col filter-choice"
-                  }
-                  onClick={this.setFilter.bind(this, "")}
-                >
-                  All
+        <div className="blog-container">
+          <div className="blog-nav">
+            <div className="row justify-content-center">
+              <div className="col-auto">
+                <div className="row">
+                  <div className="col-auto">
+                    <div
+                      className={
+                        this.state.filter == ""
+                          ? "nav-col filter-choice active-filter"
+                          : "nav-col filter-choice"
+                      }
+                      onClick={this.setFilter.bind(this, "")}
+                    >
+                      All
+                    </div>
+                  </div>
+                  <div className="col-auto">
+                    <div className="nav-col">|</div>
+                  </div>
                 </div>
-                <div className="col-auto nav-col">|</div>
               </div>
-            </div>
-            <div className="col-lg-10">
-              <div className="row">
-                <div className="col-auto nav-col">Thought Leadership</div>
-                <div className="col-auto nav-col">GBTA</div>
-                <div
-                  className={
-                    this.state.filter == "data"
-                      ? "col-auto nav-col filter-choice active-filter"
-                      : "col-auto nav-col filter-choice"
-                  }
-                  onClick={this.setFilter.bind(this, "Data")}
-                >
-                  Data
+              <div className="col-auto">
+                <div className="row">
+                  <div className="col-auto">
+                    <div className="nav-col">Thought Leadership</div>
+                  </div>
+                  <div className="col-auto">
+                    <div className="nav-col">GBTA</div>
+                  </div>
+                  <div className="col-auto">
+                    <div
+                      className={
+                        this.state.filter == "data"
+                          ? "nav-col filter-choice active-filter"
+                          : "nav-col filter-choice"
+                      }
+                      onClick={this.setFilter.bind(this, "Data")}
+                    >
+                      Data
+                    </div>
+                  </div>
+                  <div className="col-auto">
+                    <div
+                      className="nav-col"
+                      onClick={this.setFilter.bind(this, "Airlines")}
+                    >
+                      Airlines
+                    </div>
+                  </div>
+                  <div className="col-auto">
+                    <div className="nav-col">Agencies</div>
+                  </div>
+                  <div className="col-auto">
+                    <div
+                      className={
+                        this.state.filter == "omnichannel"
+                          ? "nav-col filter-choice active-filter"
+                          : "nav-col filter-choice"
+                      }
+                      onClick={this.setFilter.bind(this, "Omnichannel")}
+                    >
+                      Omnichannel
+                    </div>
+                  </div>
+                  <div className="col-auto">
+                    <div
+                      className={
+                        this.state.filter == "ndc"
+                          ? "nav-col filter-choice active-filter"
+                          : "nav-col filter-choice"
+                      }
+                      onClick={this.setFilter.bind(this, "NDC")}
+                    >
+                      NDC
+                    </div>
+                  </div>
+                  <div className="col-auto">
+                    <div className="nav-col">Travel Connect</div>
+                  </div>
                 </div>
-                <div
-                  className="col-auto nav-col"
-                  onClick={this.setFilter.bind(this, "Airlines")}
-                >
-                  Airlines
-                </div>
-                <div className="col-auto nav-col">Agencies</div>
-                <div
-                  className={
-                    this.state.filter == "omnichannel"
-                      ? "col-auto nav-col filter-choice active-filter"
-                      : "col-auto nav-col filter-choice"
-                  }
-                  onClick={this.setFilter.bind(this, "Omnichannel")}
-                >
-                  Omnichannel
-                </div>
-                <div
-                  className={
-                    this.state.filter == "ndc"
-                      ? "col-auto nav-col filter-choice active-filter"
-                      : "col-auto nav-col filter-choice"
-                  }
-                  onClick={this.setFilter.bind(this, "NDC")}
-                >
-                  NDC
-                </div>
-                <div className="col-auto nav-col">Travel Connect</div>
               </div>
             </div>
           </div>
