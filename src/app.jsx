@@ -90,7 +90,7 @@ class Blog extends Component {
     } else {
       this.setState({ showViewMore: true });
     }
-    this.setState({jumboPosts: tempPosts}, () => {this.addAdvertisement(tempPosts)});
+    this.setState({jumboPosts: [...tempPosts]}, () => {this.addAdvertisement(tempPosts)});
     // Notes:
     // We may need to change the show more function to reflect if there is a filter as well otherwise its only showing potentially any within the next 8 indecies.
   };
