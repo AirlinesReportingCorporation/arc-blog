@@ -3,6 +3,19 @@ import { Stickynav } from "arccorp-vars";
 import BlogJumbo from "./components/BlogJumbo";
 import BlogPost from "./components/BlogPost";
 import PopularArtcles from "./components/PopularArticles";
+import Select from 'react-select'
+
+const options = [
+  {value: "all", label: "All"},
+  {value: "Thought Leadership", label: "Thought Leadership"},
+  {value: "gbta", label: "GBTA"},
+  {value: "data", label: "Data"},
+  {value: "airlines", label: "Airlines"},
+  {value: "agencies", label: "Agencies"},
+  {value: "omnichannel", label: "Omnichannel"},
+  {value: "ndc", label: "NDC"},
+  {value: "travel connect", label: "Travel Connect"}
+]
 
 const arrayMax = 8;
 
@@ -161,7 +174,8 @@ class Blog extends Component {
           <div className="blog-nav">
             <div className="row justify-content-center">
               <div className="col-auto">
-                <div className="row">
+                <Select options={options} onChange={(e) => this.setFilter(e.value)} placeholder="All" isClearable={false} isSearchable={true} className="mobile-filter"></Select>
+                <div className="row web-filter">
                   <div className="col-auto">
                     <div
                       className={
@@ -179,7 +193,7 @@ class Blog extends Component {
                   </div>
                 </div>
               </div>
-              <div className="col-auto">
+              <div className="col-auto web-filter">
                 <div className="row">
                   <div className="col-auto">
                     <div className="nav-col">Thought Leadership</div>
