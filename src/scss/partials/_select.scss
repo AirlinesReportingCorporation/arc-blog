@@ -1,31 +1,37 @@
-.css-b62m3t-container{
-    text-align: left;
-    width: 347px;
-    margin-left: auto;
-}
+@use "~arccorp-vars/src/scss/main.scss";
 
-.css-1pahdxg-control:hover {
+.css-t3ipsp-control:hover {
    border-color: #D4D4D4 !important;
    cursor: pointer;
    border-radius: 0 !important;
 }
-.css-1pahdxg-control {
+.css-t3ipsp-control {
     box-shadow: none !important;
     border-color: #D4D4D4 !important;
     border-radius: 0 !important;
 }
 
-.css-1s2u09g-control {
+.css-13cymwt-control {
     border-color: #D4D4D4 !important;
     border-radius: 0 !important;
 }
-
-.css-1s2u09g-control:hover, .css-yt9ioa-option:hover {
-    cursor: pointer;
-    border-radius: 0;
+.css-1nmdiq5-menu {
+    border-radius: 0 !important;
 }
 
-.css-qc6sy-singleValue, .css-14el2xx-placeholder{
+.css-1n6sfyn-MenuList {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.css-1s2u09g-control, .css-10wo9uf-option, .css-qbdosj-Input {
+    &:hover {
+    cursor: pointer;
+    border-radius: 0;
+    }
+}
+
+.css-1dimb5e-singleValue, .css-1jqq78o-placeholder {
     font-family: SourceSansPro-Bold;
     font-weight: 400;
     text-transform: uppercase;
@@ -34,40 +40,47 @@
 
 }
 
+.css-10wo9uf-option { 
+    border-bottom: 1px solid #dddddd !important;
+    text-transform: uppercase;
+}
 
-.css-yt9ioa-option {
-    border-bottom: 1px solid #dddddd;
-    color: #6c6c6c !important;
+
+.css-tr4s17-option {
+    border-bottom: 1px solid #dddddd !important;
+    color: main.$arc-teal !important;
     font-family: SourceSansPro-Bold, Arial, Helvetica, sans-serif;
     font-size: 0.875rem;
     padding: 0.875rem;
+    background-color: main.$white !important;
+    text-transform: uppercase;
+
+    &:hover {
+        cursor: pointer;
+    }
 } 
 
-.css-1n7v3ny-option:hover, .css-1n7v3ny-option {
+.css-d7l1ni-option:hover, .css-d7l1ni-option {
     cursor: pointer;
     text-decoration: none !important;
     background-color: #f8f9fa !important;
     color: #6c6c6c !important;
     font-family: SourceSansPro-Bold, Arial, Helvetica, sans-serif;
     border-bottom: 1px solid #dddddd;
+    text-transform: uppercase;
 }
 
-.css-1okebmr-indicatorSeparator{
+.css-1u9des2-indicatorSeparator{
     display: none;
 }
 
-.css-tlfecz-indicatorContainer, .css-1gtu0rj-indicatorContainer {
+.css-1hb7zxy-IndicatorsContainer, .css-15lsz6c-indicatorContainer {
     background-color: #189bb0;
     svg {
         color: white
     }
-}
 
-.css-26l3qy-menu {
-    border-radius: 0 !important;
-}
-
-.css-4ljt47-MenuList {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    &:hover {
+        cursor: pointer;
+    }
 }
