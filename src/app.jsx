@@ -19,7 +19,6 @@ const options = [
 
 const arrayMax = 8;
 
-var stuff = ["All", "Distribution", 3, 4, 5];
 class Blog extends Component {
   constructor() {
     super();
@@ -40,6 +39,19 @@ class Blog extends Component {
       this.getPosts(this.state.prevIndex, this.state.curIndex);
     } else {
       this.getFilteredPosts(this.state.filteredIndex);
+    }
+  }
+
+  addAdvertisement = (posts) => {
+    console.log(posts.length)
+    if (posts.length == 0) {
+      // Do nothing
+    }
+    else if (posts.length == 2) {
+      // push advertisement
+    }
+    else if (posts.length > 2) {
+      // splice advertisement
     }
   }
 
@@ -71,6 +83,8 @@ class Blog extends Component {
     } else {
       this.setState({ showViewMore: true });
     }
+
+   this.addAdvertisement(tempPosts);
 
     this.setState({ posts: tempPosts });
     this.setState({ jumboPosts: tempPosts });
@@ -130,6 +144,7 @@ class Blog extends Component {
     } else {
       this.setState({ showViewMore: true });
     }
+    this.addAdvertisement(tempPosts);
 
     // set the posts array to the newly filtered posts array
     this.setState({ posts: tempPosts });
