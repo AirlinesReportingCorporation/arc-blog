@@ -43,23 +43,22 @@ class Blog extends Component {
   }
 
   
-  addAdvertisement = (posts) => {
+  addAdvertisement = (postsArray) => {
     let advertisement = {date: "", icon: "", link: "", tags: "", text:"get some of the best data you can get anywhere", title: "Airline Data", advert: true};
-
-    console.log(posts.length)
-    if (posts.length == 0) {
-      // Do nothing
+    console.log(postsArray.length)
+    if (postsArray.length == 0) {
+      this.setState({ posts: postsArray });
     }
-    else if (posts.length == 2) {
+    else if (postsArray.length == 2) {
       // push advertisement
-      posts.push(advertisement)
-      return posts
+      postsArray.push(advertisement)
+      this.setState({ posts: postsArray });
     }
-    else if (posts.length > 2) {
-      console.log(posts)
+    else if (postsArray.length > 2) {
+      console.log(postsArray)
       // splice advertisement
-      posts.splice(2,0,advertisement)
-      return posts
+      postsArray.splice(2,0,advertisement)
+      this.setState({ posts: postsArray });
     }
   }
 
@@ -91,11 +90,7 @@ class Blog extends Component {
     } else {
       this.setState({ showViewMore: true });
     }
-
-   this.addAdvertisement(tempPosts);
-
-    this.setState({ posts: tempPosts });
-    this.setState({ jumboPosts: tempPosts });
+    this.setState({jumboPosts: tempPosts}, () => {this.addAdvertisement(tempPosts)});
     // Notes:
     // We may need to change the show more function to reflect if there is a filter as well otherwise its only showing potentially any within the next 8 indecies.
   };
