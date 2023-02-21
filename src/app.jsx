@@ -42,16 +42,24 @@ class Blog extends Component {
     }
   }
 
+  
   addAdvertisement = (posts) => {
+    let advertisement = {date: "", icon: "", link: "", tags: "", text:"get some of the best data you can get anywhere", title: "Airline Data", advert: true};
+
     console.log(posts.length)
     if (posts.length == 0) {
       // Do nothing
     }
     else if (posts.length == 2) {
       // push advertisement
+      posts.push(advertisement)
+      return posts
     }
     else if (posts.length > 2) {
+      console.log(posts)
       // splice advertisement
+      posts.splice(2,0,advertisement)
+      return posts
     }
   }
 
