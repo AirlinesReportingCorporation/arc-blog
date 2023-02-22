@@ -35,3 +35,15 @@ a.article-title {
     color: main.$arc-teal;
   }
 }
+
+
+@media (max-width: 576px) {
+   .article-outer {
+    width: auto;
+    padding-top: 10px;
+   }
+
+   .article-tag {
+       padding-top: 15px;
+   }
+}

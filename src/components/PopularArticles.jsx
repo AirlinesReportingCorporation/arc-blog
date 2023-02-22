@@ -32,7 +32,7 @@ export default function PopularArtcles() {
       <div className="popular-title">Most Popular Articles</div>
       <div className="row">
         {popularArticles.map((article) => (
-          <div className="col-lg-3" style={{ color: "#2a2b2c" }}>
+          <div className="col-lg-3 col-6" style={{ color: "#2a2b2c" }}>
             <div className="article-outer">
               <div className="article-inner">
                 <div className="article-tag">

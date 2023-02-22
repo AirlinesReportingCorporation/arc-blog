@@ -101,14 +101,10 @@ h2.blog-latest {
 }
 
 @media (max-width: 576px) {
-  // .web-filter {
-  //   display: none;
-  // }
-  // .mobile-filter {
-  //   display: inline-block;
-  //   margin: 20px;
-  //   width: 80vw;
-  // }
+  .arc-blog-top {
+    padding-bottom: unset;
+  }
+ 
   .arc-sticky-container {
     display: block;
   }
