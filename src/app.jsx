@@ -307,6 +307,7 @@ class Blog extends Component {
                 pretext={post.pretext}
                 highlight={post.highlight}
                 posttext={post.posttext}
+                display={true}
                 /> :
                 <BlogPost
                   title={post.title}

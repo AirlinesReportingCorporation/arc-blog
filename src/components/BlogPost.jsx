@@ -1,6 +1,5 @@
 import { Component } from "react";
 import { motion } from "framer-motion";
-import AdvertPost from "./AdvertPost";
 
 
 function imageExists(image_url) {
