@@ -8,7 +8,8 @@ class BlogJumbo extends Component {
 
   render() {
     var jumboPost = this.props.featuredPosts.slice(0, 1);
-    var featured = this.props.featuredPosts.slice(1, 3);
+    var featured = this.props.featuredPosts.slice(1, 4);
+    featured.splice(1,1) //remove the advert
     return (
       <div className="blog-jumbo">
         <div className="row no-gutters jumbo-row">

@@ -1,0 +1,43 @@
+@use "~arccorp-vars/src/scss/main.scss";
+
+.advertInner {
+    padding: 22px 30px;
+}
+
+.advertTitle {
+    font-size: 48px;
+    line-height: 40px;
+    font-family: main.$arc-font-semibold;
+    background: -webkit-linear-gradient(360deg, #ff0d6f, #f97f00, #ffa700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-top: 35px;
+  padding-bottom: 30px;
+}
+
+.advertText, .advertHighlight {
+    font-size: 28px;
+    line-height: 36px;
+}
+
+.advertText {
+    font-family: main.$arc-font-regular;
+    color: #868b8c;
+}
+
+.advertHighlight {
+    font-family: main.$arc-font-semibold;
+    color: main.$white;
+}
+
+.advertCta {
+    position:absolute;
+    bottom: 45px;
+    color: #ffa619;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: main.$arc-font-bold;
+    &::after {font-family: "icomoon";content: "\E909";font-size: 0.675rem;margin-left: 10px;}
+}
+

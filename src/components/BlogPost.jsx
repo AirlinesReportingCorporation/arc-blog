@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { motion } from "framer-motion";
+import AdvertPost from "./AdvertPost";
 
 
 function imageExists(image_url) {
@@ -38,7 +39,7 @@ class BlogPost extends Component {
           ".jpg")
       : (imageUrl = "");
     return (
-      this.props.advert? "" : <div
+      <div
       className = {
         this.props.size
           ? this.props.size

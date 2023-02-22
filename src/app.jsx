@@ -2,6 +2,7 @@ import { Component } from "react";
 import { Stickynav } from "arccorp-vars";
 import BlogJumbo from "./components/BlogJumbo";
 import BlogPost from "./components/BlogPost";
+import AdvertPost from "./components/AdvertPost";
 import PopularArtcles from "./components/PopularArticles";
 import Select from 'react-select'
 
@@ -17,7 +18,10 @@ const options = [
   {value: "travel connect", label: "Travel Connect"}
 ]
 
-const arrayMax = 8;
+let arrayMax = 8;
+
+let advertisement = {id:"advertisement",date: "", icon: "", link: "", tags: "", pretext:"Get some of the ", highlight: "best data you can get", posttext:" anywhere", title: "Airline Data", advert: true};
+
 
 class Blog extends Component {
   constructor() {
@@ -34,6 +38,7 @@ class Blog extends Component {
     };
   }
 
+
   componentDidMount() {
     if (this.state.filter == "") {
       this.getPosts(this.state.prevIndex, this.state.curIndex);
@@ -44,9 +49,11 @@ class Blog extends Component {
 
   
   addAdvertisement = (postsArray) => {
-    let advertisement = {date: "", icon: "", link: "", tags: "", text:"get some of the best data you can get anywhere", title: "Airline Data", advert: true};
-    console.log(postsArray.length)
-    if (postsArray.length == 0) {
+    if (postsArray.some(post => post.advert === true)) {
+      // don't add another advert if one exists
+      this.setState({posts: postsArray})
+    }
+    else if (postsArray.length == 0) {
       this.setState({ posts: postsArray });
     }
     else if (postsArray.length == 2) {
@@ -70,6 +77,8 @@ class Blog extends Component {
     while (i < endIndex) {
       const post = postArray[i];
       var tempPosts = this.state.posts;
+      if (i == 2) {tempPosts.push(advertisement)} //Add advert in 3rd spot
+      else {
       tempPosts.push({
         link: post.querySelector(".ctaLink").getAttribute("href"),
         title: post.querySelector(".ctaLink").getAttribute("title"),
@@ -80,7 +89,9 @@ class Blog extends Component {
           .lastElementChild.innerHTML,
         icon: post.querySelector(".ctaLink").getAttribute("href").split("/")[3],
         text: post.querySelector(".content-block--pageItem__body").innerText,
+        advert: false,
       });
+    }
       i++;
     }
     console.log(i == postArray.length);
@@ -90,7 +101,7 @@ class Blog extends Component {
     } else {
       this.setState({ showViewMore: true });
     }
-    this.setState({jumboPosts: tempPosts}, () => {this.addAdvertisement(tempPosts)});
+    this.setState({jumboPosts: [...tempPosts]}, () => {this.addAdvertisement(tempPosts)});
     // Notes:
     // We may need to change the show more function to reflect if there is a filter as well otherwise its only showing potentially any within the next 8 indecies.
   };
@@ -104,8 +115,9 @@ class Blog extends Component {
     // Set the index to the starting index given, and reset temp index to 0;
     let i = startIndex;
     let tempIndex = 0;
+    console.log('arrayMax: ' + arrayMax)
     // As long as the index is not at the end of the posts array and temp index hasn't reached 8
-    while (i < postArray.length && tempIndex < arrayMax) {
+    while (i < postArray.length && tempIndex < arrayMax ) {
       // set post to the current post
       const post = postArray[i];
       // make a copy of the posts array
@@ -117,6 +129,10 @@ class Blog extends Component {
           .firstElementChild.innerText.toLowerCase()
           .indexOf(this.state.filter) > -1
       ) {
+        if (tempIndex == 2 && !this.state.posts.includes(advertisement)) {
+          tempPosts.push(advertisement)
+          tempIndex ++
+        }
         tempPosts.push({
           link: post.querySelector(".ctaLink").getAttribute("href"),
           title: post.querySelector(".ctaLink").getAttribute("title"),
@@ -150,7 +166,7 @@ class Blog extends Component {
     this.addAdvertisement(tempPosts);
 
     // set the posts array to the newly filtered posts array
-    this.setState({ posts: tempPosts });
+    // this.setState({ posts: tempPosts });
   };
 
   showMore = () => {
@@ -164,7 +180,6 @@ class Blog extends Component {
           this.getPosts(this.state.prevIndex, this.state.curIndex);
         }
       );
-      console.log("show more with no filter");
     } else {
       // make a copy of the last filtered index and give it as a starting point for getting more filtered posts
       var tempIndex = this.state.filteredIndex;
@@ -285,6 +300,14 @@ class Blog extends Component {
           <div className="blog-container">
             <div className="row">
               {this.state.posts.map((post) => (
+                post.advert == true ? <AdvertPost 
+                title={post.title}
+                color={'#2a2b2c'}
+                link={post.link}
+                pretext={post.pretext}
+                highlight={post.highlight}
+                posttext={post.posttext}
+                /> :
                 <BlogPost
                   title={post.title}
                   link={post.link}
