@@ -6,7 +6,6 @@ class AdvertPost extends Component {
   }
 
   render() {
-    let text = this.props.pretext + <span>this.props.highlight</span> + this.props.posttext;
     return (
       <div style={{display: this.props.display? "inline-block": 'none'}}
         className={

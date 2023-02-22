@@ -312,7 +312,7 @@ class Blog extends Component {
                 <BlogPost
                   title={post.title}
                   link={post.link}
-                  tags={post.tags}
+                  tags={post.tags.slice(0,4)}
                   date={post.date.substring(0, post.date.indexOf(","))}
                   icon={post.icon}
                 />
