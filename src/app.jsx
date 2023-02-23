@@ -139,26 +139,28 @@ class Blog extends Component {
       ) {
         if (tempIndex == 2 && !this.state.posts.includes(advertisement)) {
           tempPosts.push(advertisement);
-          tempIndex++;
-        } else {
-          tempPosts.push({
-            link: post.querySelector(".ctaLink").getAttribute("href"),
-            title: post.querySelector(".ctaLink").getAttribute("title"),
-            tags: post
-              .querySelector(".content-block--pageItem__metadata")
-              .firstElementChild.innerHTML.split(","),
-            date: post.querySelector(".content-block--pageItem__metadata")
-              .lastElementChild.innerHTML,
-            icon: post
-              .querySelector(".ctaLink")
-              .getAttribute("href")
-              .split("/")[3],
-          });
-          // Update the index and the temp index
-          tempIndex++;
-          i++;
         }
-      } else {
+        tempPosts.push({
+          link: post.querySelector(".ctaLink").getAttribute("href"),
+          title: post.querySelector(".ctaLink").getAttribute("title"),
+          tags: post
+            .querySelector(".content-block--pageItem__metadata")
+            .firstElementChild.innerHTML.split(","),
+          date: post.querySelector(".content-block--pageItem__metadata")
+            .lastElementChild.innerHTML,
+          icon: post
+            .querySelector(".ctaLink")
+            .getAttribute("href")
+            .split("/")[3],
+        });
+        // Update the index and the temp index
+        tempIndex++;
+        i++;
+        if (tempPosts.length == arrayMax) {
+          break;
+        }
+      }
+      else {
         // Otherwise, just go to the next index
         i++;
       }
@@ -173,7 +175,7 @@ class Blog extends Component {
       this.setState({ showViewMore: true });
     }
     console.log(tempPosts);
-    this.addAdvertisement(tempPosts);
+    this.setState({ posts: tempPosts });
 
     // set the posts array to the newly filtered posts array
     // this.setState({ posts: tempPosts });
