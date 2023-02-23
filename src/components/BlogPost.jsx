@@ -78,7 +78,7 @@ class BlogPost extends Component {
           <div className="post-bottom">
             <div className="post-bottom-inner">
               <div className="blog-post-data">
-                <span className="blog-post-date">{this.props.date}</span>
+                <span className="blog-post-date">{this.props.timeread}</span>
               </div>
               <div className="blog-title">{this.props.title}</div>
             </div>

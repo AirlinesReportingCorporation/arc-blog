@@ -7,9 +7,35 @@ class BlogJumbo extends Component {
   }
 
   render() {
-    var jumboPost = this.props.featuredPosts.slice(0, 1);
-    var featured = this.props.featuredPosts.slice(1, 4);
-    featured.splice(1,1) //remove the advert
+    var jumboPost = [{
+      icon: "ARC-Moves-Direct-Connect-NDC-Forward",
+      timeread: "1 min read",
+      title: "ARC Moves Direct Connect and NDC Forward",
+      text: "Interest in ARC’s Direct Connect is skyrocketing. Learn how much the program has grown in 2022 and plans for future expansion.",
+      link: '/articles-trends/the-latest/ARC-Moves-Direct-Connect-NDC-Forward/',
+      tags: ['Connection', 'Data'],
+      advert: false
+    }];
+    var featured = [
+      {
+        icon: "unauthorized-ticketing-fraud",
+        timeread: "2 MIN READ",
+        title: "Unauthorized Ticketing: How to Avoid Devastating Financial Losses",
+        text: "Interest in ARC’s Direct Connect is skyrocketing. Learn how much the program has grown in 2022 and plans for future expansion.",
+        link: 'https://www2.arccorp.com/articles-trends/the-latest/unauthorized-ticketing-fraud/',
+        tags: ['Connection', 'Data', 'Distribution'],
+        advert:false
+      },
+      {
+        icon: "top-10-blogs-2022",
+        timeread: "4 MIN READ",
+        title: "ARC Moves Direct Connect and NDC Forward",
+        text: "Interest in ARC’s Direct Connect is skyrocketing. Learn how much the program has grown in 2022 and plans for future expansion.",
+        link: 'https://www2.arccorp.com/articles-trends/the-latest/top-10-blogs-2022/',
+        tags: ['Connection', 'Distribution'],
+        advert: false
+      },
+    ];
     return (
       <div className="blog-jumbo">
         <div className="row no-gutters jumbo-row">
@@ -49,11 +75,7 @@ class BlogJumbo extends Component {
               {jumboPost.map((jumbo) => (
                 <div className="jumbo-info bg-color-tarmac">
                   <div className="jumbo-metadata">
-                    <span>
-                      {jumbo.date.substring(0, jumbo.date.indexOf(","))}
-                    </span>
-                    {" • "}
-                    <span>1 min read</span>
+                    <span>{jumbo.timeread}</span>
                   </div>
                   <div
                     className="blog-jumbo-title"
@@ -77,10 +99,10 @@ class BlogJumbo extends Component {
                             post.icon +
                             ".jpg"
                           }
+                          timeread={post.timeread}
                           link={post.link}
                           title={post.title}
                           tags={post.tags}
-                          date={post.date.substring(0, post.date.indexOf(","))}
                         />
                       ))}
                     </div>
