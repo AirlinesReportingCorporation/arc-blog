@@ -81,9 +81,9 @@ class Blog extends Component {
     while (i < endIndex) {
       const post = postArray[i];
       var tempPosts = this.state.posts;
-      if (tempPosts.length == 2) {
-        tempPosts.push(advertisement);
-      } //Add advert in 3rd spot
+      // if (tempPosts.length == 2) {
+      //   tempPosts.push(advertisement);
+      // } //Add advert in 3rd spot
       tempPosts.push({
         link: post.querySelector(".ctaLink").getAttribute("href"),
         title: post.querySelector(".ctaLink").getAttribute("title"),
@@ -137,9 +137,9 @@ class Blog extends Component {
           .firstElementChild.innerText.toLowerCase()
           .indexOf(this.state.filter) > -1
       ) {
-        if (tempIndex == 2 && !this.state.posts.includes(advertisement)) {
-          tempPosts.push(advertisement);
-        }
+        // if (tempIndex == 2 && !this.state.posts.includes(advertisement)) {
+        //   tempPosts.push(advertisement);
+        // }
         tempPosts.push({
           link: post.querySelector(".ctaLink").getAttribute("href"),
           title: post.querySelector(".ctaLink").getAttribute("title"),
