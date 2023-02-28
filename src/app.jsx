@@ -8,14 +8,14 @@ import Select from "react-select";
 
 const options = [
   { value: "all", label: "All" },
-  { value: "Thought Leadership", label: "Thought Leadership" },
-  { value: "gbta", label: "GBTA" },
+  // { value: "Thought Leadership", label: "Thought Leadership" },
+  // { value: "gbta", label: "GBTA" },
   { value: "data", label: "Data" },
-  { value: "airlines", label: "Airlines" },
-  { value: "agencies", label: "Agencies" },
+  // { value: "airlines", label: "Airlines" },
+  // { value: "agencies", label: "Agencies" },
   { value: "omnichannel", label: "Omnichannel" },
   { value: "ndc", label: "NDC" },
-  { value: "travel connect", label: "Travel Connect" },
+  // { value: "travel connect", label: "Travel Connect" },
 ];
 
 let arrayMax = 8;
@@ -159,8 +159,7 @@ class Blog extends Component {
         if (tempPosts.length == arrayMax) {
           break;
         }
-      }
-      else {
+      } else {
         // Otherwise, just go to the next index
         i++;
       }
@@ -247,11 +246,35 @@ class Blog extends Component {
               </div>
               <div className="col-auto web-filter">
                 <div className="row">
-                  <div className="col-auto">
+                  {/* <div className="col-auto">
                     <div className="nav-col">Thought Leadership</div>
+                  </div> */}
+                  {/* <div className="col-auto">
+                    <div className="nav-col">GBTA</div>
+                  </div> */}
+                  <div className="col-auto">
+                    <div
+                      className={
+                        this.state.filter == "innovation"
+                          ? "nav-col filter-choice active-filter"
+                          : "nav-col filter-choice"
+                      }
+                      onClick={this.setFilter.bind(this, "Innovation")}
+                    >
+                      Innovation
+                    </div>
                   </div>
                   <div className="col-auto">
-                    <div className="nav-col">GBTA</div>
+                    <div
+                      className={
+                        this.state.filter == "connection"
+                          ? "nav-col filter-choice active-filter"
+                          : "nav-col filter-choice"
+                      }
+                      onClick={this.setFilter.bind(this, "Connection")}
+                    >
+                      Connection
+                    </div>
                   </div>
                   <div className="col-auto">
                     <div
@@ -265,16 +288,28 @@ class Blog extends Component {
                       Data
                     </div>
                   </div>
-                  <div className="col-auto">
+                  {/* <div className="col-auto">
                     <div
                       className="nav-col"
                       onClick={this.setFilter.bind(this, "Airlines")}
                     >
                       Airlines
                     </div>
-                  </div>
-                  <div className="col-auto">
+                  </div> */}
+                  {/* <div className="col-auto">
                     <div className="nav-col">Agencies</div>
+                  </div> */}
+                  <div className="col-auto">
+                    <div
+                      className={
+                        this.state.filter == "distribution"
+                          ? "nav-col filter-choice active-filter"
+                          : "nav-col filter-choice"
+                      }
+                      onClick={this.setFilter.bind(this, "Distribution")}
+                    >
+                      Distribution
+                    </div>
                   </div>
                   <div className="col-auto">
                     <div
@@ -300,9 +335,9 @@ class Blog extends Component {
                       NDC
                     </div>
                   </div>
-                  <div className="col-auto">
+                  {/* <div className="col-auto">
                     <div className="nav-col">Travel Connect</div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
