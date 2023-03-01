@@ -22,7 +22,7 @@ class BlogJumbo extends Component {
         timeread: "2 MIN READ",
         title: "Unauthorized Ticketing: How to Avoid Devastating Financial Losses",
         text: "Interest in ARC’s Direct Connect is skyrocketing. Learn how much the program has grown in 2022 and plans for future expansion.",
-        link: 'https://www2.arccorp.com/articles-trends/the-latest/unauthorized-ticketing-fraud/',
+        link: '/articles-trends/the-latest/unauthorized-ticketing-fraud/',
         tags: ['Connection', 'Data', 'Distribution'],
         advert:false
       },
@@ -31,7 +31,7 @@ class BlogJumbo extends Component {
         timeread: "4 MIN READ",
         title: "ARC Moves Direct Connect and NDC Forward",
         text: "Interest in ARC’s Direct Connect is skyrocketing. Learn how much the program has grown in 2022 and plans for future expansion.",
-        link: 'https://www2.arccorp.com/articles-trends/the-latest/top-10-blogs-2022/',
+        link: '/articles-trends/the-latest/top-10-blogs-2022/',
         tags: ['Connection', 'Distribution'],
         advert: false
       },
