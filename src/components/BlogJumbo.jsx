@@ -29,7 +29,7 @@ class BlogJumbo extends Component {
       {
         icon: "top-10-blogs-2022",
         timeread: "4 MIN READ",
-        title: "ARC Moves Direct Connect and NDC Forward",
+        title: "ARC’s Top 10 Blog Posts of 2022",
         text: "Interest in ARC’s Direct Connect is skyrocketing. Learn how much the program has grown in 2022 and plans for future expansion.",
         link: '/articles-trends/the-latest/top-10-blogs-2022/',
         tags: ['Connection', 'Distribution'],
