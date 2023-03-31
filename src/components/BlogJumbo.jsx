@@ -27,12 +27,12 @@ class BlogJumbo extends Component {
         advert:false
       },
       {
-        icon: "top-10-blogs-2022",
-        timeread: "4 MIN READ",
-        title: "ARC’s Top 10 Blog Posts of 2022",
-        text: "Interest in ARC’s Direct Connect is skyrocketing. Learn how much the program has grown in 2022 and plans for future expansion.",
-        link: '/articles-trends/the-latest/top-10-blogs-2022/',
-        tags: ['Connection', 'Distribution'],
+        icon: "travel-tales-and-tips",
+        timeread: "5 MIN READ",
+        title: "Travel Tales and Tips from the Women of ARC",
+        text: "Get ready to explore! Read inspiring travel stories that will inspire you to embark on your own adventures.",
+        link: '/articles-trends/the-latest/travel-tales-and-tips/',
+        tags: ['Connection'],
         advert: false
       },
     ];
