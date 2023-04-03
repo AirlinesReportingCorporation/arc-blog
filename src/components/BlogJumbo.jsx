@@ -13,7 +13,7 @@ class BlogJumbo extends Component {
       title: "ARC is NDC-Ready",
       text: "Learn about the latest in NDC and ARC’s pathway to settlement and reporting with Direct Connect.",
       link: '/articles-trends/the-latest/arc-is-ndc-ready/',
-      tags: ['NDC','Connection', 'Data'],
+      tags: ['NDC','Distribution', 'Omnichannel'],
       advert: false
     }];
     var featured = [
