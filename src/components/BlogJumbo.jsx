@@ -8,12 +8,12 @@ class BlogJumbo extends Component {
 
   render() {
     var jumboPost = [{
-      icon: "ARC-Moves-Direct-Connect-NDC-Forward",
+      icon: "arc-is-ndc-ready",
       timeread: "1 min read",
-      title: "ARC Moves Direct Connect and NDC Forward",
-      text: "Interest in ARC’s Direct Connect is skyrocketing. Learn how much the program has grown in 2022 and plans for future expansion.",
-      link: '/articles-trends/the-latest/ARC-Moves-Direct-Connect-NDC-Forward/',
-      tags: ['Connection', 'Data'],
+      title: "ARC is NDC-Ready",
+      text: "Learn about the latest in NDC and ARC’s pathway to settlement and reporting with Direct Connect.",
+      link: '/articles-trends/the-latest/arc-is-ndc-ready/',
+      tags: ['NDC','Connection', 'Data'],
       advert: false
     }];
     var featured = [
