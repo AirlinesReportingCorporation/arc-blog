@@ -18,12 +18,12 @@ class BlogJumbo extends Component {
     }];
     var featured = [
       {
-        icon: "unauthorized-ticketing-fraud",
+        icon: "travel-industry-fraud-scams-webinar-recap",
         timeread: "2 MIN READ",
-        title: "Unauthorized Ticketing: How to Avoid Devastating Financial Losses",
-        text: "Interest in ARC’s Direct Connect is skyrocketing. Learn how much the program has grown in 2022 and plans for future expansion.",
-        link: '/articles-trends/the-latest/unauthorized-ticketing-fraud/',
-        tags: ['Connection', 'Data', 'Distribution'],
+        title: "Travel Industry Fraud & Scams Webinar Recap",
+        text: "Protect your travel business from phishing scams. Watch this ARC Fraud Awareness Webinar with Cornelius Hattingh, Doug Nass and Ariana Levinson.",
+        link: '/articles-trends/the-latest/travel-industry-fraud-scams-webinar-recap/',
+        tags: ['Data', 'Innovation'],
         advert:false
       },
       {
