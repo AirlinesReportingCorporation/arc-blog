@@ -8,15 +8,25 @@ class BlogJumbo extends Component {
 
   render() {
     var jumboPost = [{
-      icon: "arc-is-ndc-ready",
+      icon: "2024-air-travel-hacks-report",
       timeread: "1 min read",
-      title: "ARC is NDC-Ready",
-      text: "Learn about the latest in NDC and ARC’s pathway to settlement and reporting with Direct Connect.",
-      link: '/articles-trends/the-latest/arc-is-ndc-ready/',
+      title: "2024 Air Travel Hacks Report",
+      text: "Expedia and ARC Release 2024 Air Travel Hacks Report",
+      link: '/articles-trends/the-latest/2024-air-travel-hacks-report/',
       tags: ['NDC','Distribution', 'Omnichannel'],
       advert: false
     }];
+
     var featured = [
+      {
+        icon: "arc-is-ndc-ready",
+        timeread: "1 min read",
+        title: "ARC is NDC-Ready",
+        text: "Learn about the latest in NDC and ARC’s pathway to settlement and reporting with Direct Connect.",
+        link: '/articles-trends/the-latest/arc-is-ndc-ready/',
+        tags: ['NDC','Distribution', 'Omnichannel'],
+        advert: false
+      },
       {
         icon: "travel-industry-fraud-scams-webinar-recap",
         timeread: "2 MIN READ",
@@ -25,16 +35,7 @@ class BlogJumbo extends Component {
         link: '/articles-trends/the-latest/travel-industry-fraud-scams-webinar-recap/',
         tags: ['Data', 'Innovation'],
         advert:false
-      },
-      {
-        icon: "travel-tales-and-tips",
-        timeread: "5 MIN READ",
-        title: "Travel Tales and Tips from the Women of ARC",
-        text: "Get ready to explore! Read inspiring travel stories that will inspire you to embark on your own adventures.",
-        link: '/articles-trends/the-latest/travel-tales-and-tips/',
-        tags: ['Connection'],
-        advert: false
-      },
+      }
     ];
     return (
       <div className="blog-jumbo">
@@ -56,9 +57,7 @@ class BlogJumbo extends Component {
                       {jumbo.tags.length > 1 ? (
                         jumbo.tags.map((tag, index) => {
                           return (
-                            <span key={index}>
-                              {tag + (index == !jumbo.tags.length ? " • " : "")}
-                            </span>
+                            <span key={index}>{(index ? " • " : "") + tag}</span>
                           );
                         })
                       ) : (
