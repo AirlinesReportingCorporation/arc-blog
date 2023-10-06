@@ -19,9 +19,9 @@ class BlogJumbo extends Component {
 
     var featured = [
       {
-        icon: "arc-is-ndc-ready",
+        icon: "navigating-ndc-arc-direct-connect-webinar-recap",
         timeread: "1 min read",
-        title: "ARC is NDC-Ready",
+        title: "Navigating NDC and ARC Direct Connect: A Roadmap to Innovation Webinar Recap",
         text: "Learn about the latest in NDC and ARC’s pathway to settlement and reporting with Direct Connect.",
         link: '/articles-trends/the-latest/arc-is-ndc-ready/',
         tags: ['NDC','Distribution', 'Omnichannel'],
