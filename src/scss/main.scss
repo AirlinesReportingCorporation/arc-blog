@@ -80,7 +80,11 @@ h2.blog-latest {
   display: none;
 }
 
-
+@media (max-width: 990.9999px) {
+  .blog-jumbo {
+    margin-top:0;
+  }
+}
 
 @media (min-width: 576px) {
   .arc-sticky-container {
