@@ -214,7 +214,6 @@ class Blog extends Component {
       <div className="arc-blog-page">
         <Stickynav title="Articles"></Stickynav>
         <div className="arc-blog-top">
-          <PopularArtcles />
           <BlogJumbo />
         </div>
         <div className="blog-container">
