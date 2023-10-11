@@ -23,7 +23,7 @@ class BlogJumbo extends Component {
         timeread: "1 min read",
         title: "Navigating NDC and ARC Direct Connect: A Roadmap to Innovation Webinar Recap",
         text: "Learn about the latest in NDC and ARC’s pathway to settlement and reporting with Direct Connect.",
-        link: '/articles-trends/the-latest/arc-is-ndc-ready/',
+        link: '/articles-trends/the-latest/navigating-ndc-arc-direct-connect-webinar-recap/',
         tags: ['NDC','Distribution', 'Omnichannel'],
         advert: false
       },
