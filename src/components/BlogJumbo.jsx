@@ -8,31 +8,31 @@ class BlogJumbo extends Component {
 
   render() {
     var jumboPost = [{
-      icon: "2024-air-travel-hacks-report",
-      timeread: "1 min read",
-      title: "2024 Air Travel Hacks Report",
-      text: "Expedia and ARC Release 2024 Air Travel Hacks Report",
-      link: '/articles-trends/the-latest/2024-air-travel-hacks-report/',
-      tags: ['NDC','Distribution', 'Omnichannel'],
+      icon: "protect-your-agency-from-fraud-this-holiday-season",
+      timeread: "2 min read",
+      title: "Protect Your Agency from Fraud This Holiday Season",
+      text: "Before you gather with family and friends this holiday season, take a moment to secure your travel agency systems.",
+      link: '/articles-trends/the-latest/protect-your-agency-from-fraud-this-holiday-season/',
+      tags: ['Data','Innovation', 'Fraud'],
       advert: false
     }];
 
     var featured = [
       {
-        icon: "navigating-ndc-arc-direct-connect-webinar-recap",
+        icon: "2024-air-travel-hacks-report",
         timeread: "1 min read",
-        title: "Navigating NDC and ARC Direct Connect: A Roadmap to Innovation Webinar Recap",
-        text: "Learn about the latest in NDC and ARC’s pathway to settlement and reporting with Direct Connect.",
-        link: '/articles-trends/the-latest/navigating-ndc-arc-direct-connect-webinar-recap/',
+        title: "2024 Air Travel Hacks Report",
+        text: "Expedia and ARC Release 2024 Air Travel Hacks Report",
+        link: '/articles-trends/the-latest/2024-air-travel-hacks-report/',
         tags: ['NDC','Distribution', 'Omnichannel'],
         advert: false
       },
       {
-        icon: "travel-industry-fraud-scams-webinar-recap",
-        timeread: "2 MIN READ",
-        title: "Travel Industry Fraud & Scams Webinar Recap",
-        text: "Protect your travel business from phishing scams. Watch this ARC Fraud Awareness Webinar with Cornelius Hattingh, Doug Nass and Ariana Levinson.",
-        link: '/articles-trends/the-latest/travel-industry-fraud-scams-webinar-recap/',
+        icon: "fraud-awareness-webinar-recap-2023-schemes-2024-readiness",
+        timeread: "1 MIN READ",
+        title: "Fraud Awareness Webinar Recap: 2023 Schemes & 2024 Readiness",
+        text: "Learn about critical fraud awareness insights and practical tips to prepare your travel agency for security challenges in 2024.",
+        link: '/articles-trends/the-latest/fraud-awareness-webinar-recap-2023-schemes-2024-readiness/',
         tags: ['Data', 'Innovation'],
         advert:false
       }
