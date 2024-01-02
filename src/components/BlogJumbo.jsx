@@ -8,25 +8,16 @@ class BlogJumbo extends Component {
 
   render() {
     var jumboPost = [{
-      icon: "protect-your-agency-from-fraud-this-holiday-season",
-      timeread: "2 min read",
-      title: "Protect Your Agency from Fraud This Holiday Season",
-      text: "Before you gather with family and friends this holiday season, take a moment to secure your travel agency systems.",
-      link: '/articles-trends/the-latest/protect-your-agency-from-fraud-this-holiday-season/',
-      tags: ['Data','Innovation', 'Fraud'],
+      icon: "2024-air-travel-hacks-report",
+      timeread: "1 min read",
+      title: "2024 Air Travel Hacks Report",
+      text: "Expedia and ARC Release 2024 Air Travel Hacks Report",
+      link: '/articles-trends/the-latest/2024-air-travel-hacks-report/',
+      tags: ['NDC','Distribution', 'Omnichannel'],
       advert: false
     }];
 
     var featured = [
-      {
-        icon: "2024-air-travel-hacks-report",
-        timeread: "1 min read",
-        title: "2024 Air Travel Hacks Report",
-        text: "Expedia and ARC Release 2024 Air Travel Hacks Report",
-        link: '/articles-trends/the-latest/2024-air-travel-hacks-report/',
-        tags: ['NDC','Distribution', 'Omnichannel'],
-        advert: false
-      },
       {
         icon: "fraud-awareness-webinar-recap-2023-schemes-2024-readiness",
         timeread: "1 MIN READ",
@@ -35,6 +26,15 @@ class BlogJumbo extends Component {
         link: '/articles-trends/the-latest/fraud-awareness-webinar-recap-2023-schemes-2024-readiness/',
         tags: ['Data', 'Innovation'],
         advert:false
+      },
+      {
+        icon: "navigating-ndc-arc-direct-connect-webinar-recap",
+        timeread: "2 min read",
+        title: "Navigating NDC and ARC Direct Connect: A Roadmap to Innovation Webinar Recap",
+        text: "Discover New Distribution Capability's (NDC) history, its driving forces and how ARC supports travel innovation with Direct Connect.",
+        link: '/articles-trends/the-latest/navigating-ndc-arc-direct-connect-webinar-recap/',
+        tags: ['NDC','Innovation', 'Distribution'],
+        advert: false
       }
     ];
     return (
