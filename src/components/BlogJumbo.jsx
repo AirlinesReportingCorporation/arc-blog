@@ -28,12 +28,12 @@ class BlogJumbo extends Component {
         advert:false
       },
       {
-        icon: "navigating-ndc-arc-direct-connect-webinar-recap",
-        timeread: "2 min read",
-        title: "Navigating NDC and ARC Direct Connect: A Roadmap to Innovation Webinar Recap",
-        text: "Discover New Distribution Capability's (NDC) history, its driving forces and how ARC supports travel innovation with Direct Connect.",
-        link: '/articles-trends/the-latest/navigating-ndc-arc-direct-connect-webinar-recap/',
-        tags: ['NDC','Innovation', 'Distribution'],
+        icon: "unleashing-innovation-a-recap-of-2023-and-a-glimpse-into-2024",
+        timeread: "3 min read",
+        title: "Unleashing Innovation: A Recap of 2023 and a Glimpse into 2024",
+        text: "As we usher in a new year, we're thrilled to take a moment to reflect on the incredible strides we've made together in 2023 and share a sneak peek into the exciting developments awaiting you in 2024.",
+        link: '/articles-trends/the-latest/unleashing-innovation-a-recap-of-2023-and-a-glimpse-into-2024/',
+        tags: ['NDC', 'Distribution','Innovation'],
         advert: false
       }
     ];
