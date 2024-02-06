@@ -10,14 +10,14 @@ const options = [
   { value: "all", label: "All" },
   // { value: "Thought Leadership", label: "Thought Leadership" },
   // { value: "gbta", label: "GBTA" },
+  { value: "fraud", label: "Fraud" },
   { value: "innovation", label: "Innovation" },
   { value: "connection", label: "Connection" },
   { value: "data", label: "Data" },
-  { value: "distribution", label: "Distribution" },
+  { value: "data", label: "Distribution (NDC)" },
   // { value: "airlines", label: "Airlines" },
   // { value: "agencies", label: "Agencies" },
   { value: "omnichannel", label: "Omnichannel" },
-  { value: "ndc", label: "NDC" },
   // { value: "travel connect", label: "Travel Connect" },
 ];
 
@@ -35,6 +35,22 @@ let advertisement = {
   title: "Airline Data",
   advert: true,
 };
+
+// function ndcTagReplace(tags) {
+//   console.log(tags)
+//   tags.map((tag) => {
+//     console.log(tag)
+//     if (tag === "NDC" || tag === "Distribution" || tag === " NDC" || tag === " Distribution") {
+//       const ndcTag = "Distribution (NDC)";
+//       tag = ndcTag;
+//       return tags;
+//     }
+//     else {
+//       return tags;
+//     }
+//   })
+
+// }
 
 class Blog extends Component {
   constructor() {
@@ -127,19 +143,39 @@ class Blog extends Component {
     let i = startIndex;
     let tempIndex = 0;
     console.log("arrayMax: " + arrayMax);
+    console.log(this.state.filter);
     // As long as the index is not at the end of the posts array and temp index hasn't reached 8
     while (i < postArray.length && tempIndex < arrayMax) {
       // set post to the current post
       const post = postArray[i];
       // make a copy of the posts array
       var tempPosts = this.state.posts;
-      // If the post has the filter push it
-      if (
-        post
-          .querySelector(".content-block--pageItem__metadata")
-          .firstElementChild.innerText.toLowerCase()
-          .indexOf(this.state.filter) > -1
-      ) {
+      let currentFilter = this.state.filter;
+      var matchedPosts = false;
+      // console.log(currentFilter)
+      // If current Filter is Distribution (NDC) we look for Distribution or NDC
+      if (currentFilter == "distribution-ndc") {
+        //We would check to see if it matches and if it matches then push it otherwise exit this if
+        matchedPosts =
+          post
+            .querySelector(".content-block--pageItem__metadata")
+            .firstElementChild.innerText.toLowerCase()
+            .indexOf("distribution") > -1 ||
+          post
+            .querySelector(".content-block--pageItem__metadata")
+            .firstElementChild.innerText.toLowerCase()
+            .indexOf("ndc") > -1;
+      } else {
+        matchedPosts =
+          post
+            .querySelector(".content-block--pageItem__metadata")
+            .firstElementChild.innerText.toLowerCase()
+            .indexOf(this.state.filter) > -1;
+      }
+
+      //If the post has the filter push it
+
+      if (matchedPosts) {
         // if (tempIndex == 2 && !this.state.posts.includes(advertisement)) {
         //   tempPosts.push(advertisement);
         // }
@@ -304,13 +340,13 @@ class Blog extends Component {
                   <div className="col-auto">
                     <div
                       className={
-                        this.state.filter == "distribution"
+                        this.state.filter == "distribution-ndc"
                           ? "nav-col filter-choice active-filter"
                           : "nav-col filter-choice"
                       }
-                      onClick={this.setFilter.bind(this, "Distribution")}
+                      onClick={this.setFilter.bind(this, "Distribution-NDC")}
                     >
-                      Distribution
+                      Distribution (NDC)
                     </div>
                   </div>
                   <div className="col-auto">
@@ -328,13 +364,13 @@ class Blog extends Component {
                   <div className="col-auto">
                     <div
                       className={
-                        this.state.filter == "ndc"
+                        this.state.filter == "fraud"
                           ? "nav-col filter-choice active-filter"
                           : "nav-col filter-choice"
                       }
-                      onClick={this.setFilter.bind(this, "NDC")}
+                      onClick={this.setFilter.bind(this, "Fraud")}
                     >
-                      NDC
+                      Fraud
                     </div>
                   </div>
                   {/* <div className="col-auto">

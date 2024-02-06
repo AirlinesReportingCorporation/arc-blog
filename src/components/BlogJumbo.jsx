@@ -13,7 +13,7 @@ class BlogJumbo extends Component {
       title: "2024 Air Travel Hacks Report",
       text: "Expedia and ARC Release 2024 Air Travel Hacks Report",
       link: '/articles-trends/the-latest/2024-air-travel-hacks-report/',
-      tags: ['NDC','Distribution', 'Omnichannel'],
+      tags: ['Omnichannel', 'Distribution (NDC)'],
       advert: false
     }];
 
@@ -33,7 +33,7 @@ class BlogJumbo extends Component {
         title: "Unleashing Innovation: A Recap of 2023 and a Glimpse into 2024",
         text: "As we usher in a new year, we're thrilled to take a moment to reflect on the incredible strides we've made together in 2023 and share a sneak peek into the exciting developments awaiting you in 2024.",
         link: '/articles-trends/the-latest/unleashing-innovation-a-recap-of-2023-and-a-glimpse-into-2024/',
-        tags: ['NDC', 'Distribution','Innovation'],
+        tags: ['Innovation', 'Distribution (NDC)'],
         advert: false
       }
     ];
