@@ -19,12 +19,12 @@ class BlogJumbo extends Component {
 
     var featured = [
       {
-        icon: "fraud-awareness-webinar-recap-2023-schemes-2024-readiness",
+        icon: "protecting-agents-webinar-part-one-recap-security-agreement-insights-updates",
         timeread: "1 MIN READ",
-        title: "Fraud Awareness Webinar Recap: 2023 Schemes & 2024 Readiness",
-        text: "Learn about critical fraud awareness insights and practical tips to prepare your travel agency for security challenges in 2024.",
-        link: '/articles-trends/the-latest/fraud-awareness-webinar-recap-2023-schemes-2024-readiness/',
-        tags: ['Data', 'Innovation'],
+        title: "Protecting Agents Webinar: Part One Recap – Security Agreement Insights & Updates",
+        text: "Travel agents: Watch this webinar to learn how ARC defines reasonable care, discover strategies to prevent fraud and how to safeguard your agency.",
+        link: '/articles-trends/the-latest/protecting-agents-webinar-part-one-recap-security-agreement-insights-updates/',
+        tags: ['Data', 'Innovation', 'Fraud'],
         advert:false
       },
       {
