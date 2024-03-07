@@ -67,6 +67,7 @@ class Blog extends Component {
   }
 
   componentDidMount() {
+    document.querySelectorAll(".content-block--pageItem__inside")[0].remove();
     if (this.state.filter == "") {
       this.getPosts(this.state.prevIndex, this.state.curIndex);
     } else {
@@ -103,28 +104,19 @@ class Blog extends Component {
       // if (tempPosts.length == 2) {
       //   tempPosts.push(advertisement);
       // } //Add advert in 3rd spot
-      if (
-        post.querySelector(".ctaLink").getAttribute("href").indexOf("staging") >
-        -1
-      ) {
-        console.log("skip staging page");
-      } else {
-        tempPosts.push({
-          link: post.querySelector(".ctaLink").getAttribute("href"),
-          title: post.querySelector(".ctaLink").getAttribute("title"),
-          tags: post
-            .querySelector(".content-block--pageItem__metadata")
-            .firstElementChild.innerHTML.split(","),
-          date: post.querySelector(".content-block--pageItem__metadata")
-            .lastElementChild.innerHTML,
-          icon: post
-            .querySelector(".ctaLink")
-            .getAttribute("href")
-            .split("/")[3],
-          text: post.querySelector(".content-block--pageItem__body").innerText,
-          advert: false,
-        });
-      }
+      tempPosts.push({
+        link: post.querySelector(".ctaLink").getAttribute("href"),
+        title: post.querySelector(".ctaLink").getAttribute("title"),
+        tags: post
+          .querySelector(".content-block--pageItem__metadata")
+          .firstElementChild.innerHTML.split(","),
+        date: post.querySelector(".content-block--pageItem__metadata")
+          .lastElementChild.innerHTML,
+        icon: post.querySelector(".ctaLink").getAttribute("href").split("/")[3],
+        text: post.querySelector(".content-block--pageItem__body").innerText,
+        advert: false,
+      });
+
       i++;
       if (tempPosts.length == endIndex) {
         break;
