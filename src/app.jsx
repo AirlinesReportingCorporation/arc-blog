@@ -124,9 +124,8 @@ class Blog extends Component {
           text: post.querySelector(".content-block--pageItem__body").innerText,
           advert: false,
         });
-        i++;
       }
-
+      i++;
       if (tempPosts.length == endIndex) {
         break;
       }
