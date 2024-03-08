@@ -67,7 +67,6 @@ class Blog extends Component {
   }
 
   componentDidMount() {
-    document.querySelectorAll(".content-block--pageItem__inside")[0].remove();
     if (this.state.filter == "") {
       this.getPosts(this.state.prevIndex, this.state.curIndex);
     } else {
